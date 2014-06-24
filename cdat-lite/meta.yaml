@@ -6,6 +6,8 @@ source:
     fn: cdat_lite-5.2-1.tar.gz
     url: http://ndg.nerc.ac.uk/dist/cdat_lite-5.2-1.tar.gz
     sha1: 8d7f373367cd05c0378d310ce78ee4a1a68d258b
+    patches:
+        - patch.diff
 
 build:
     number: 2
@@ -13,7 +15,7 @@ build:
 requirements:
     build:
         - python
-        - numpy <1.9 # Depends on oldnumeric, which was removed in v1.9.
+        - numpy <1.9  # Depends on oldnumeric, which was removed in 1.9
         - setuptools
         - libnetcdf 4.*
         - hdf5
@@ -22,6 +24,11 @@ requirements:
         - numpy <1.9
         - libnetcdf 4.*
         - hdf5
+
+test:
+  imports:
+    - cdat_lite
+    - cdtime
 
 about:
   home: http://proj.badc.rl.ac.uk/cedaservices/wiki/CdatLite

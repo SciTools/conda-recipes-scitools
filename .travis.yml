@@ -2,6 +2,10 @@
 # python distribution for the scientific python stack.
 language: c
 
+os:
+ - linux
+ - osx
+
 env:
     global:
         # Add the BINSTAR_TOKEN environment variable. This has been generated with "binstar auth --create" and is valid for the next 12 months.
@@ -9,17 +13,15 @@ env:
         secure: "kH4jnmQ3m3wH1T1TcjuJQKvWEym8ZBR8jXBu2Uqg2bJvpRM9xrkg79t5i0fSNX2wfEeuSg0X6Tb8kL10I78tAnjgIqs6MfDsGncZMqggTnFwzyC0jtus8ZLKL4ED42NnXpfAfnHVXibHdFyhCxey4ZW8ZV5d15v5DZ3/apobEJ0="
 
     matrix:
-        - CONDA_PY=27  CONDA_NPY=17
+        - CONDA_PY=27  CONDA_NPY=18
 
 install:
-    - # Replace the ssh protocol with https for all non-private files.
-    - find * -type f -exec sed -i 's/git\@github.com\:/https\:\/\/github\.com\//g' {} \;
-
-    - # Install makeinfo - needed for constructing configuration files via autoreconf (in particular for udunits)
-    - sudo apt-get install texinfo
+    # Install makeinfo - needed for constructing configuration files via autoreconf (in particular for udunits)
+    - if [[ "$OSTYPE" == "linux-gnu" ]]; then sudo apt-get install texinfo; fi
 
     - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
     - python bootstrap-obvious-ci-and-miniconda.py ./conda_installation x64 2 --without-obvci && source ./conda_installation/bin/activate root
+    - conda config --set show_channel_urls True && conda config --add channels http://conda.binstar.org/pelson/channel/main
     - conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci
     - conda config --add channels http://conda.binstar.org/pelson
     - obvci_install_conda_build_tools.py

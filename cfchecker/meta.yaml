@@ -6,6 +6,8 @@ source:
     fn: cfchecker-2.0.5ceda.p1.tar.gz
     url: https://pypi.python.org/packages/source/c/cfchecker/cfchecker-2.0.5ceda.p1.tar.gz
     sha1: 8709708c8c9417e91403a0e0aa539d3bae55f346
+    patches:
+        - patch.diff  # [osx]
 
 build:
     number: 1

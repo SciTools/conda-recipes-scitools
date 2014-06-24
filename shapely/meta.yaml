@@ -1,0 +1,35 @@
+package:
+  name: shapely
+  # NOTE: As this version increases, so should the dependency version in cartopy.
+  version: 1.4.3.issue177
+
+source:
+  git_url: https://github.com/Toblerity/Shapely.git
+  git_tag: 1.4.3
+  patches:
+    - osx-geos.patch        [osx]
+
+requirements:
+  build:
+    - python
+    - distribute
+    - geos >=3.4
+    - cython
+    - numpy
+  run:
+    - python
+    - geos
+    - numpy
+
+build:
+  number: 1
+
+test:
+  imports:
+    - shapely
+    - shapely.speedups._speedups
+
+about:
+  home: https://github.com/Toblerity/Shapely
+  license: BSD
+  summary: 'Python package for manipulation and analysis of geometric objects in the Cartesian plane'
