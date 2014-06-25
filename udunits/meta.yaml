@@ -1,0 +1,19 @@
+package:
+    name: udunits
+    version: 2.2.14
+
+source:
+    fn: udunits-2.2.14.tar.gz
+    url: ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.2.14.tar.gz
+    sha1: 598f6495a028acb2da0a7a19ac5b2395f491a7b7
+
+build:
+    number: 0
+
+test:
+    commands:
+        - udunits2 -h
+
+about:
+  home: http://www.unidata.ucar.edu/software/udunits/
+  summary: The UDUNITS package supports units of physical quantities.
