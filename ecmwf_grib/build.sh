@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./configure --prefix=$PREFIX --with-jasper=$PREFIX --disable-fortran \
+CFLAGS="-fPIC" ./configure --prefix=$PREFIX --with-jasper=$PREFIX --disable-fortran \
     --enable-python
 make
 make install
@@ -12,3 +12,10 @@ make install
 # Instead of that, we just move them back up into the site-packages directory.
 mv $SP_DIR/grib_api/* $SP_DIR/
 rmdir $SP_DIR/grib_api
+
+echo "Saving $PREFIX to $PREFIX/.build_prefix"
+# Record where this build was made for subsequent use in post-link.sh.
+# NB. Use the ".a" suffix so conda doesn't treat this as a text file and
+# automatically add it to the has_prefix_files category (with the
+# resulting with /opt/anaconda1anaconda2).
+echo "$PREFIX" > $PREFIX/.build_prefix.a

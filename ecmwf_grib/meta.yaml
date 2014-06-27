@@ -1,11 +1,15 @@
 package:
     name: ecmwf_grib
-    version: "1.12.1"
+    version: "1.9.16"
 
 source:
-    fn: grib_api-1.12.1.tar.gz
-    url: https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.12.1.tar.gz?api=v2
-    sha1: b769ac5db70703f0d944d93aafbbeee7513958f1
+    fn: grib_api-1.9.16.tar.gz
+    url: https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz
+    sha1: baff7ad8de71d5e81a90595a0b4650c77f8bd6cf
+
+build:
+    has_prefix_files:
+        - bin/grib1to2
 
 requirements:
     build:
@@ -18,9 +22,12 @@ requirements:
         - numpy
         - jasper
 
-test:
-    imports:
-        - gribapi
+#test:
+#    commands:
+#        - ls `grib_info -t`
+#
+#    imports:
+#        - gribapi
 
 about:
     home: https://software.ecmwf.int/wiki/display/GRIB/Home
