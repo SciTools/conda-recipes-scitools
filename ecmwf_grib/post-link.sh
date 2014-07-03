@@ -149,13 +149,20 @@ EOF
 chmod +x patchbinary.py
 
 BUILD_PREFIX=$(cat $PREFIX/.build_prefix.a | tr -d '\n')
-# Patch files in bin
-for file in $PREFIX/bin/grib*
+# Patch bin files.
+for file in $PREFIX/bin/grib* $PREFIX/bin/big2gribex
 do
     ./patchbinary.py "$BUILD_PREFIX" "$PREFIX" "$file"
 done
-# Patch lib files
+# Patch lib files.
 for file in $PREFIX/lib/libgrib*
+do
+    ./patchbinary.py "$BUILD_PREFIX" "$PREFIX" "$file"
+done
+
+# TODO: Fix the version-specific location!
+# Patch pyc/pyo files.
+for file in $PREFIX/lib/python2.7/site-packages/*grib*
 do
     ./patchbinary.py "$BUILD_PREFIX" "$PREFIX" "$file"
 done

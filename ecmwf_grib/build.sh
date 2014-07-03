@@ -13,7 +13,7 @@ make install
 mv $SP_DIR/grib_api/* $SP_DIR/
 rmdir $SP_DIR/grib_api
 
-echo "Saving $PREFIX to $PREFIX/.build_prefix"
+echo "Saving $PREFIX to $PREFIX/.build_prefix.a"
 # Record where this build was made for subsequent use in post-link.sh.
 # NB. Use the ".a" suffix so conda doesn't treat this as a text file and
 # automatically add it to the has_prefix_files category (with the

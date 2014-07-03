@@ -8,6 +8,8 @@ source:
     sha1: baff7ad8de71d5e81a90595a0b4650c77f8bd6cf
 
 build:
+    number: 10
+
     has_prefix_files:
         - bin/grib1to2
 
