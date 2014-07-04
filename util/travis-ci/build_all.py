@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import subprocess
 import yaml
@@ -89,12 +90,21 @@ def resolve_dependencies(package_dependencies):
 
 
 def build_package(package_name, root):
+    # Note: dependencies need to be installed - this is not currently implemented.
     return subprocess.check_call(['conda', 'build', package_name], cwd=root)
 
 
 def main():
-    conda_recipes_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    # Look in ../../ from this script.
+    conda_recipes_root = os.path.dirname(os.path.dirname(
+                                os.path.dirname(os.path.abspath(__file__))))
+    print('Looking for packages in {}'.format(conda_recipes_root))
     packages = list(conda_packages(conda_recipes_root))
+
+    names = [name for name, _, _ in packages]
+    print('Found {} packages: \n    {}'.format(len(packages),
+                                               '\n    '.join(sorted(names))))
+
     package_dependencies = conda_package_dependencies(packages)
     for package in resolve_dependencies(package_dependencies):
         print('\n'.join(['-' * 80] * 4))
