@@ -1,0 +1,28 @@
+package:
+    name: cdat-lite
+    version: 5.2.1
+
+source:
+    fn: cdat_lite-5.2-1.tar.gz
+    url: http://ndg.nerc.ac.uk/dist/cdat_lite-5.2-1.tar.gz
+    sha1: 8d7f373367cd05c0378d310ce78ee4a1a68d258b
+
+build:
+    number: 1
+
+requirements:
+    build:
+        - python
+        - numpy
+        - setuptools
+        - libnetcdf 4.*
+        - hdf5
+    run:
+        - python
+        - numpy
+        - libnetcdf 4.*
+        - hdf5
+
+about:
+  home: http://proj.badc.rl.ac.uk/cedaservices/wiki/CdatLite
+  summary: A Python package for managing and analysing climate science data.
