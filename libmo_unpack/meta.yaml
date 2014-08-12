@@ -1,16 +1,10 @@
 package:
     name: libmo_unpack
-    version: "030712"
+    version: !!str 2.0.3
 
 source:
-    fn: unpack-030712.tgz
-    url: https://puma.nerc.ac.uk/trac/UM_TOOLS/raw-attachment/wiki/unpack/unpack-030712.tgz
-    sha1: cce96978d8e06ebbee50989d7c934f7569a241dd
-
-requirements:
-    build:
-
-    run:
+    fn: unpack-160114.tgz
+    url: https://puma.nerc.ac.uk/trac/UM_TOOLS/raw-attachment/wiki/unpack/unpack-160114.tgz
 
 about:
     home: https://puma.nerc.ac.uk/trac/UM_TOOLS/wiki/unpack
