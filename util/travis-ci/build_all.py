@@ -22,6 +22,8 @@ def build_deps(meta_yaml_fname):
     with open(meta_yaml_fname, 'r') as fh:
         meta = yaml.load(fh)
         build_req = meta.get('requirements', {}).get('build', [])
+    if build_req is None:
+        build_req = []
     return build_req
 
 
@@ -99,7 +101,7 @@ def main():
     conda_recipes_root = os.path.dirname(os.path.dirname(
                                 os.path.dirname(os.path.abspath(__file__))))
     print('Looking for packages in {}'.format(conda_recipes_root))
-    packages = list(conda_packages(conda_recipes_root))
+    packages = sorted(conda_packages(conda_recipes_root))
 
     names = [name for name, _, _ in packages]
     print('Found {} packages: \n    {}'.format(len(packages),
