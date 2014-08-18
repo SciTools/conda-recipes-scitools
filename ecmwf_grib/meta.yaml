@@ -16,12 +16,12 @@ build:
 requirements:
     build:
         - python
-        - numpy 1.7*
+        - numpy
         - jasper
 
     run:
         - python
-        - numpy 1.7*
+        - numpy
         - jasper
 
 test:

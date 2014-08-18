@@ -1,21 +1,10 @@
 #!/bin/bash
 
-echo $PYTHON
-$PYTHON -c "import numpy"
-
-export LD_LIBRARY_PATH="${PREFIX}/lib:${LD_LIBRARY_PATH}"
 mkdir -p $PREFIX/bin
 cp $SYS_PYTHON-config $PREFIX/bin/
 
-$PYTHON-config --help
-
-
 LDFLAGS="-L$PREFIX/lib" PYTHON="$PYTHON" PYTHON_LDFLAGS=$PREFIX/lib CFLAGS="-fPIC -Wl,-rpath,$PREFIX/lib" ./configure --with-jasper=$PREFIX/lib --disable-fortran --prefix=$PREFIX --enable-python
 
-#PYTHON=/usr/bin/python CFLAGS="-fPIC" ./configure --disable-fortran --enable-python
-
-#CFLAGS="-fPIC" ./configure --prefix=$PREFIX --with-jasper=$PREFIX --disable-fortran \
-#    --enable-python
 make
 make install
 
@@ -33,3 +22,4 @@ echo "Saving $PREFIX to $PREFIX/.build_prefix.a"
 # automatically add it to the has_prefix_files category (with the
 # resulting with /opt/anaconda1anaconda2).
 echo "$PREFIX" > $PREFIX/.build_prefix.a
+
