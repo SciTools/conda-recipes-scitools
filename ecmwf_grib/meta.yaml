@@ -1,0 +1,37 @@
+package:
+    name: ecmwf_grib
+    version: "1.9.16"
+
+source:
+    fn: grib_api-1.9.16.tar.gz
+    url: https://software.ecmwf.int/wiki/download/attachments/3473437/grib_api-1.9.16.tar.gz
+    sha1: baff7ad8de71d5e81a90595a0b4650c77f8bd6cf
+
+build:
+    number: 10
+
+    has_prefix_files:
+        - bin/grib1to2
+
+requirements:
+    build:
+        - python
+        - numpy
+        - jasper
+
+    run:
+        - python
+        - numpy
+        - jasper
+
+#test:
+#    commands:
+#        - ls `grib_info -t`
+#
+#    imports:
+#        - gribapi
+
+about:
+    home: https://software.ecmwf.int/wiki/display/GRIB/Home
+    license: Apache License, Version 2.0
+    summary: The ECMWF API for encoding and decoding WMO FM-92 GRIB edition 1 and edition 2 messages.
