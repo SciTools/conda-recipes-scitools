@@ -1,14 +1,15 @@
 package:
     name: biggus
-    version: "0.5.0"
+    version: "0.7.0"
 
 source:
     git_url: git@github.com:SciTools/biggus.git
-    git_tag: v0.5.0
+    git_tag: v0.7.0
 
 requirements:
     build:
         - python
+        - setuptools
 
     run:
         - python
