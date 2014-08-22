@@ -3,7 +3,7 @@ wget http://repo.continuum.io/miniconda/Miniconda-3.4.2-Linux-x86_64.sh -O minic
 bash miniconda.sh -b -p $HOME/miniconda
 export PATH="$HOME/miniconda/bin:$PATH"
 
-conda install conda-build binstar --yes
+conda install conda-build=1.7.0 binstar --yes
 
 # Crazily, conda needs jinja2...
 conda install jinja2 setuptools --yes

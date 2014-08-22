@@ -1,5 +1,7 @@
 #!/bin/bash
 
+$SYS_PYTHON -c "import conda_build; print conda_build.__file__;"
+
 mkdir -p $PREFIX/bin
 cp $SYS_PYTHON-config $PREFIX/bin/
 
