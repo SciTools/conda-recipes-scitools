@@ -22,9 +22,7 @@ def build_deps(meta_yaml_fname):
     with open(meta_yaml_fname, 'r') as fh:
         meta = yaml.load(fh)
         build_req = meta.get('requirements', {}).get('build', [])
-    if build_req is None:
-        build_req = []
-    return build_req
+    return [build_dep.split(' ', 1)[0] for build_dep in (build_req or [])]
 
 
 def conda_package_dependencies(packages):
@@ -104,11 +102,14 @@ def main():
     packages = sorted(conda_packages(conda_recipes_root))
 
     names = [name for name, _, _ in packages]
-    print('Found {} packages: \n    {}'.format(len(packages),
-                                               '\n    '.join(sorted(names))))
+    print('Found {} packages: \n\t{}'.format(len(packages),
+                                               '\n\t'.join(sorted(names))))
 
     package_dependencies = conda_package_dependencies(packages)
-    for package in resolve_dependencies(package_dependencies):
+    resolved_dependencies = list(resolve_dependencies(package_dependencies))
+    print('Resolved dependencies, will be built in the following order: \n\t{}'.format(
+               '\n\t'.join(resolved_dependencies)))
+    for package in resolved_dependencies:
         print('\n'.join(['-' * 80] * 4))
         print 'Building {} from {}'.format(package, conda_recipes_root)
         print('\n'.join(['-' * 80] * 4))
