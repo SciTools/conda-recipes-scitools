@@ -1,11 +1,11 @@
 package:
     name: udunits
-    version: 2.2.16
+    version: 2.2.17
 
 source:
-    fn: udunits-2.2.16.tar.gz
-    url: ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.2.16.tar.gz
-    sha1: 57b4a30cd0adcec9e8d941e2464f0a22a52fe33b
+    fn: udunits-2.2.17.tar.gz
+    url: ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.2.17.tar.gz
+    sha1: f43381dcd17e22185a4d86b3077b61784bc9535a
 
 build:
     number: 0
