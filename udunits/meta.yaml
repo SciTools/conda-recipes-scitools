@@ -3,9 +3,9 @@ package:
     version: 2.2.17
 
 source:
-    fn: udunits-2.2.17.tar.gz
-    url: ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.2.17.tar.gz
-    sha1: f43381dcd17e22185a4d86b3077b61784bc9535a
+    fn: v2.2.17.tar.gz
+    url: https://github.com/Unidata/UDUNITS-2/archive/v2.2.17.tar.gz
+    sha1: 3dfb7b1f18e21ac5366127778bbfd50ab5b7cf0a
 
 build:
     number: 0

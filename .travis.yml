@@ -12,6 +12,9 @@ install:
     - # Replace the ssh protocol with https for all non-private files.
     - find * -type f -exec sed -i 's/git\@github.com\:/https\:\/\/github\.com\//g' {} \;
 
+    - # Install makeinfo - needed for constructing configuration files via autoreconf (in particular for udunits)
+    - sudo apt-get install texinfo
+
     - cd util/travis-ci
     - source install_conda.sh
 
