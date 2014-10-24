@@ -8,6 +8,9 @@ env:
         # The token was constructed with "travis encrypt BINSTAR_TOKEN=<token_id> --repo SciTools/conda-recipes-scitools
         secure: "kH4jnmQ3m3wH1T1TcjuJQKvWEym8ZBR8jXBu2Uqg2bJvpRM9xrkg79t5i0fSNX2wfEeuSg0X6Tb8kL10I78tAnjgIqs6MfDsGncZMqggTnFwzyC0jtus8ZLKL4ED42NnXpfAfnHVXibHdFyhCxey4ZW8ZV5d15v5DZ3/apobEJ0="
 
+    matrix:
+        - CONDA_PY=27  CONDA_NPY=17
+
 install:
     - # Replace the ssh protocol with https for all non-private files.
     - find * -type f -exec sed -i 's/git\@github.com\:/https\:\/\/github\.com\//g' {} \;
