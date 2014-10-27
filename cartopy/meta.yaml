@@ -27,6 +27,7 @@ requirements:
     - scipy
     - pyshp
     - matplotlib
+    - pyepsg
 
 test:
   imports:
