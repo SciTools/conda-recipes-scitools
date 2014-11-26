@@ -18,15 +18,11 @@ install:
     - # Install makeinfo - needed for constructing configuration files via autoreconf (in particular for udunits)
     - sudo apt-get install texinfo
 
-    - cd util/travis-ci
-    - source install_conda.sh
+    - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
+    - python bootstrap-obvious-ci-and-miniconda.py ./conda_installation x64 2 --without-obvci && source ./conda_installation/bin/activate root
+    - conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci
+    - obvci_install_conda_build_tools.py
 
 script:
-    - python build_all.py
+    - obvci_conda_build_dir.py ./ pelson --channel main
 
-after_success:
-    - echo "Celebrate (and maybe do the same thing on OSX?)!"
-    - # ln -s util/travis\-ci/travis.osx.yml .travis.yml -f
-    -
-    - # Upload to binstar.
-    - python upload_all.py
