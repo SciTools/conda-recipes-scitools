@@ -1,0 +1,43 @@
+package:
+    name: iris
+    version: 1.7.2
+
+source:
+    git_url: git@github.com:SciTools/iris.git
+    git_tag: v1.7.2
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+        - scipy
+        - biggus
+        - cartopy >=0.11.2
+        - netcdf4
+        - udunits 2.*
+        - pyke
+        - setuptools
+        - libmo_unpack
+    run:
+        - python
+        - scipy
+        - biggus
+        - cartopy >=0.11.2
+        - matplotlib
+        - netcdf4
+        - ecmwf_grib >=1.12.1
+        - numpy
+        - pyke
+        - udunits 2.*
+        - libmo_unpack
+
+test:
+    imports:
+        - iris.fileformats.pp_packing
+
+about:
+    home: http://www.scitools.org.uk/iris
+    license: GNU Lesser General Public License
+    summary: Analyse and visualise meteorological and oceanographic data sets.
