@@ -13,8 +13,14 @@ requirements:
     - cython
     - proj4
     - geos
+    # On OSX We need to effectively pin the geos version to the
+    # one used by the specific shapely being targetted (we're letting
+    # conda's package solver will deal with that).
     - shapely ==1.4.3.issue177  # [osx]
-    - owslib # (only needed for test dependency)
+    # owslib is not a build dependency, but it exists as a recipe and
+    # should be built before cartopy for cartopy testing. Obvious-ci
+    # should be extended to resolve this issue in the future.
+    - owslib
   run:
     - python
     - six
