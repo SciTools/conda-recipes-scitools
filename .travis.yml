@@ -21,6 +21,7 @@ install:
     - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
     - python bootstrap-obvious-ci-and-miniconda.py ./conda_installation x64 2 --without-obvci && source ./conda_installation/bin/activate root
     - conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci
+    - conda config --add channels http://conda.binstar.org/pelson
     - obvci_install_conda_build_tools.py
 
 script:
