@@ -13,6 +13,7 @@ requirements:
     - cython
     - proj4
     - geos
+    - shapely ==1.4.3.issue177  # [osx]
     - owslib # (only needed for test dependency)
   run:
     - python
@@ -23,7 +24,8 @@ requirements:
     - owslib
     - numpy
     - proj4
-    - shapely ==1.4.3.issue177
+    - shapely ==1.4.3.issue177  # [osx]
+    - shapely                   # [not osx]
     - scipy
     - pyshp
     - matplotlib

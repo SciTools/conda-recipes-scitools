@@ -13,11 +13,6 @@ requirements:
 
   run:
 
-test:
-  imports:
-
-  commands:
-
 about:
-  home: http://trac.osgeo.org/proj/
+  home: http://trac.osgeo.org/geos/
   summary: 'Geometry Engine - Open Source'

@@ -9,6 +9,9 @@ source:
   patches:
     - osx-geos.patch        [osx]
 
+build:
+  number: 1
+
 requirements:
   build:
     - python
@@ -20,9 +23,6 @@ requirements:
     - python
     - geos
     - numpy
-
-build:
-  number: 1
 
 test:
   imports:

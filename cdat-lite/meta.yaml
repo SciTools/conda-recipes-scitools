@@ -7,7 +7,7 @@ source:
     url: http://ndg.nerc.ac.uk/dist/cdat_lite-5.2-1.tar.gz
     sha1: 8d7f373367cd05c0378d310ce78ee4a1a68d258b
     patches:
-        - patch.diff
+        - patch.diff  # [osx]
 
 build:
     number: 2
