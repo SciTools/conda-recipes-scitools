@@ -8,18 +8,18 @@ source:
     sha1: 8d7f373367cd05c0378d310ce78ee4a1a68d258b
 
 build:
-    number: 1
+    number: 2
 
 requirements:
     build:
         - python
-        - numpy
+        - numpy <1.9 # Depends on oldnumeric, which was removed in v1.9.
         - setuptools
         - libnetcdf 4.*
         - hdf5
     run:
         - python
-        - numpy
+        - numpy <1.9
         - libnetcdf 4.*
         - hdf5
 
