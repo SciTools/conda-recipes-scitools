@@ -8,10 +8,8 @@ source:
     sha1: b769ac5db70703f0d944d93aafbbeee7513958f1
 
 build:
-    number: 1
-
-    has_prefix_files:
-        - bin/grib1to2
+    number: 2
+    detect_binary_files_with_prefix: true
 
 requirements:
     build:
@@ -26,7 +24,7 @@ requirements:
 
 test:
     commands:
-        - ls `grib_info -t`
+        - ls $(grib_info -t) | head -n 2   # prints the test data directory.
     imports:
         - gribapi
 
