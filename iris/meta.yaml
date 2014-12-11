@@ -14,7 +14,7 @@ requirements:
         - python
         - scipy
         - biggus
-        - cartopy >=0.11.2
+        - cartopy >=0.11
         - netcdf4
         - udunits 2.*
         - pyke
@@ -24,7 +24,7 @@ requirements:
         - python
         - scipy
         - biggus
-        - cartopy >=0.11.2
+        - cartopy >=0.11
         - matplotlib
         - netcdf4
         - ecmwf_grib >=1.12.1
