@@ -5,8 +5,7 @@ $SYS_PYTHON -c "import conda_build; print conda_build.__file__;"
 mkdir -p $PREFIX/bin
 cp $SYS_PYTHON-config $PREFIX/bin/
 
-export C_INCLUDE_PATH=$INCLUDE_PATH
-LDFLAGS="-L$PREFIX/lib" PYTHON="$PYTHON" PYTHON_LDFLAGS=$PREFIX/lib CFLAGS="-fPIC -Wl,-rpath,$PREFIX/lib" ./configure --with-jasper=$PREFIX/lib --disable-fortran --prefix=$PREFIX --enable-python
+LDFLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" PYTHON="$PYTHON" PYTHON_LDFLAGS="$PREFIX/lib" CFLAGS="-fPIC -I$PREFIX/include" ./configure --with-jasper=$PREFIX/lib --disable-fortran --prefix=$PREFIX --enable-python
 
 make
 make install
