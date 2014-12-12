@@ -2,7 +2,7 @@
 
 if [ ! -f configure ];
 then
-   # Make the configure file
+   # Make the configure file. Need autoreconf, libtool, libexpat-dev for this.
    autoreconf -i --force
 fi
 
