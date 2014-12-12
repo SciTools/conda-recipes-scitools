@@ -1,10 +1,11 @@
 package:
     name: iris
-    version: 1.7.2
+    version: 1.7.2.dev
 
 source:
-    git_url: https://github.com/SciTools/iris.git
-    git_tag: v1.7.2
+    git_url: https://github.com/pelson/iris.git
+    git_tag: v1.7.x  # [not win]
+    git_tag: windows_build  # [win]
 
 build:
     number: 0
@@ -19,7 +20,7 @@ requirements:
         - udunits 2.*
         - pyke
         - setuptools
-        - libmo_unpack
+        - libmo_unpack  # [not win]
     run:
         - python
         - scipy
@@ -27,15 +28,16 @@ requirements:
         - cartopy >=0.11
         - matplotlib
         - netcdf4
-        - ecmwf_grib >=1.12.1
+        - ecmwf_grib >=1.12.1  # [not win]
         - numpy
         - pyke
         - udunits 2.*
-        - libmo_unpack
+        - libmo_unpack  # [not win]
 
 test:
     imports:
-        - iris.fileformats.pp_packing
+        - iris
+        - iris.fileformats.pp_packing  # [not win]
 
 about:
     home: http://www.scitools.org.uk/iris
