@@ -9,13 +9,12 @@ source:
 
 requirements:
   build:
-#    - cmake <=2.8
-    - expat
+    - expat  # [win]
   run:
-    - expat
+    - expat  # [win]
 
 build:
-    number: 3
+    number: 4
     detect_binary_files_with_prefix: true
 
 test:

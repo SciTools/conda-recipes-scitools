@@ -26,7 +26,3 @@ copy prog\udunits2.exe %LIBRARY_BIN%\ || exit 1
 copy lib\udunits2.dll %LIBRARY_BIN%\ || exit 1
 copy lib\udunits2.lib %LIBRARY_LIB%\ || exit 1
 
-
-copy %RECIPE_DIR%\patchbinary.py %PREFIX%\patchbinary.py
-copy %RECIPE_DIR%\update_udunits.py %PREFIX%\update_udunits.py
-echo %PREFIX% >%PREFIX%\build_prefix.a
