@@ -20,7 +20,6 @@ build:
 test:
     commands:
         - udunits2 -h
-        # Note: requires UDUNITS2_XML_PATH to be set to the test directory on Windows. UDUNITS is not portable on Windows currently.
         - udunits2 -H meter -W miles
 
 about:

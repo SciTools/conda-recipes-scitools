@@ -10,7 +10,7 @@ fi
 make
 make install
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ $(uname) == Darwin ]]; then
     cp ${RECIPE_DIR}/patchbinary.py ${PREFIX}/
     echo ${PREFIX} > ${PREFIX}/build_prefix.a
 fi
