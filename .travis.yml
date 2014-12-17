@@ -8,9 +8,8 @@ os:
 
 env:
     global:
-        # Add the BINSTAR_TOKEN environment variable. This has been generated with "binstar auth --create" and is valid for the next 12 months.
-        # The token was constructed with "travis encrypt BINSTAR_TOKEN=<token_id> --repo SciTools/conda-recipes-scitools
-        secure: "kH4jnmQ3m3wH1T1TcjuJQKvWEym8ZBR8jXBu2Uqg2bJvpRM9xrkg79t5i0fSNX2wfEeuSg0X6Tb8kL10I78tAnjgIqs6MfDsGncZMqggTnFwzyC0jtus8ZLKL4ED42NnXpfAfnHVXibHdFyhCxey4ZW8ZV5d15v5DZ3/apobEJ0="
+        # Add the BINSTAR_TOKEN environment variable. This has been generated with "" then "travis encrypt BINSTAR_TOKEN=<token_id> --repo SciTools/conda-recipes-scitools"
+        secure: "EM0pZljYUF5KoJPKbJcNLrAoc6x0iV7QsSbJHRPF3GViV8dX8d0O0HB7Bh++84uf/114eLhhmRCu82YuuehVKFhx7oE461jrdeoPzMK9Em80iufw6q0/gzNaWpOlQNPFqAk19ElV+ADfNp8Ju2kw1FHg/ggEqlp49fPkPPKoG7g="
 
     matrix:
         - CONDA_PY=27  CONDA_NPY=18
@@ -23,9 +22,9 @@ install:
     - python bootstrap-obvious-ci-and-miniconda.py ~/miniconda x64 2 --without-obvci && source ~/miniconda/bin/activate root
     - conda config --set show_channel_urls True && conda config --add channels http://conda.binstar.org/pelson/channel/main
     - conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci
-    - conda config --add channels http://conda.binstar.org/pelson
+    - conda config --add channels http://conda.binstar.org/SciTools
     - obvci_install_conda_build_tools.py
 
 script:
-    - obvci_conda_build_dir.py ./ pelson --channel main
+    - obvci_conda_build_dir.py ./ SciTools --channel main
 
