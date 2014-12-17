@@ -9,6 +9,10 @@ source:
   patches:
     - cartopy.win.patch  # [win]
 
+build:
+  number: 0     # [not win]
+  number: 1     # [win]
+
 requirements:
   build:
     - python

@@ -13,7 +13,8 @@ source:
     - geom.py.patch  # [win]
 
 build:
-  number: 2
+  number: 2     # [not win]
+  number: 3     # [win]
 
 requirements:
   build:
