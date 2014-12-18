@@ -8,8 +8,9 @@ environment:
   CMD_IN_ENV: "cmd /E:ON /V:ON /C obvci_appveyor_python_build_env.cmd"
 
   BINSTAR_TOKEN:
-    secure: rCl3tR9qKVjNlG9MVyY2E6ZZsj6Wrhwe5ytWWXtbUaJWpIiLkY6ItyJkAyEpNJCO
-
+    # Generated with "binstar auth --create --name ScitoolsRecipesAppVeyor -o SciTools" and encrypted on ci.appveyor.com/tools/encrypt. 
+    secure: DFD+Qz5YcJOb7zqewQw1UCAFql9MEq6QxrsUiZVKpTSNHX8O5vFmJtKwI7pzP3Nt
+ 
   matrix:
     - TARGET_ARCH: "x86"
       CONDA_PY: "27"
@@ -31,7 +32,7 @@ install:
     - cmd: set PYTHONUNBUFFERED=1
 
     - cmd: conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci
-    - cmd: conda config --add channels http://conda.binstar.org/pelson
+    - cmd: conda config --add channels http://conda.binstar.org/scitools
     - cmd: conda info
     - cmd: obvci_install_conda_build_tools.py
 
@@ -39,4 +40,4 @@ install:
 build: off
 
 test_script:
-    - "%CMD_IN_ENV% obvci_conda_build_dir.py .\ pelson --channel main"
+    - "%CMD_IN_ENV% obvci_conda_build_dir.py .\ scitools --channel main"
