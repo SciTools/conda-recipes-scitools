@@ -4,8 +4,8 @@ cd build
 copy %RECIPE_DIR%\stdint.h .
 
 
-cmake .. -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%
+cmake .. -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% -DCMAKE_BUILD_TYPE=Release
 nmake install
 
-:: Udunits is looking for a libexpat.lib.
-copy %LIBRARY_LIB%\expat.lib %LIBRARY_LIB%\libexpat.lib
+mkdir %SCRIPTS%
+move %LIBRARY_BIN%\expat.dll %SCRIPTS%\expat.dll || exit 1 

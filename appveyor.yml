@@ -35,6 +35,7 @@ install:
     - cmd: conda config --add channels http://conda.binstar.org/scitools
     - cmd: conda info
     - cmd: obvci_install_conda_build_tools.py
+    - cmd: conda install binstar=0.9.5 --yes
 
 # Skip .NET project specific build phase.
 build: off
