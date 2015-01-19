@@ -8,7 +8,8 @@ source:
     - cmake.win.patch  # [win]
 
 build:
-  number: 2
+  number: 3  # [win]
+  number: 2  # [not win]
 
 requirements:
   build:
