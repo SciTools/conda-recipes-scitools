@@ -5,9 +5,5 @@ source:
     fn: expat-2.1.0.tar.gz
     url: http://sourceforge.net/projects/expat/files/expat/2.1.0/expat-2.1.0.tar.gz/download
 
-#requirements:
-#  build:
-#    - cmake
-
 build:
-    number: 5
+    number: 6
