@@ -19,7 +19,6 @@ build:
 requirements:
   build:
     - python
-    - distribute
     - geos >=3.4
     - cython
     - numpy
