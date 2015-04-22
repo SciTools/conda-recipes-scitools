@@ -18,13 +18,12 @@ requirements:
     - libmo_unpack # [not win]
   run:
     - python
+    - numpy
     - libmo_unpack # [not win]
 
 test:
   imports:
     - mo_pack
-  commands:
-    - if [ ! -f $PREFIX/lib/_packing.so ]; then exit 1; fi
 
 about:
   license: GNU LGPL
