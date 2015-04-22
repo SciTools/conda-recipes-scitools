@@ -7,7 +7,6 @@ source:
   git_tag: 2212deb2105d380345c9b558f8f4c3d3be903496
   patches:
     - geos_c.win.patch      # [win]
-    - libgeos.py.patch  # [win]
 
 build:
   number: 0
@@ -27,6 +26,7 @@ test:
   imports:
     - shapely
     - shapely.speedups._speedups
+    - shapely.vectorized._vectorized
 
 about:
   home: https://github.com/Toblerity/Shapely
