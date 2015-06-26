@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$SYS_PYTHON -c "import conda_build; print conda_build.__file__;"
+$SYS_PYTHON -c "import conda_build; print(conda_build.__file__);"
 
 mkdir -p $PREFIX/bin
 cp $SYS_PYTHON-config $PREFIX/bin/
@@ -19,3 +19,6 @@ make install
 mv $SP_DIR/grib_api $SP_DIR/gribapi
 mv $SP_DIR/gribapi/gribapi.py $SP_DIR/gribapi/__init__.py
 
+# Delete useless files
+find $PREFIX/lib -name '*.a' -delete
+find $PREFIX/lib -name '*.la' -delete
