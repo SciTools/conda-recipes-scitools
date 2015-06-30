@@ -34,7 +34,7 @@ requirements:
     - six
     - mock
     - nose
-    - pil
+    - pillow
     - owslib
     - numpy
     - proj4
