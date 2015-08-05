@@ -35,6 +35,11 @@ install:
     - cmd: conda info
     - cmd: obvci_install_conda_build_tools.py
 
+      # Workaround for obvious-CI issue.
+      # See https://github.com/SciTools/conda-recipes-scitools/pull/83
+      # and https://github.com/pelson/Obvious-CI/pull/13
+    - cmd: conda install --yes anaconda-client
+
 # Skip .NET project specific build phase.
 build: off
 
