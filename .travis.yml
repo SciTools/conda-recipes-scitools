@@ -23,6 +23,13 @@ addons:
             # files via autoreconf (in particular for udunits)
             - texinfo
 
+            # Unit testing framework for C (used by libmo_unpack)
+            - check
+
+before_install:
+    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; fi
+    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install check; fi
+
 install:
     - wget https://raw.githubusercontent.com/pelson/Obvious-CI/v0.1.0/bootstrap-obvious-ci-and-miniconda.py
     - python bootstrap-obvious-ci-and-miniconda.py ~/miniconda x64 2 --without-obvci && source ~/miniconda/bin/activate root
