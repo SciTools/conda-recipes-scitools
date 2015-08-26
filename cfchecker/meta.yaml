@@ -17,14 +17,14 @@ build:
 
 requirements:
     build:
-        - python
-        - numpy  # must be <1.9 due to use of oldnumeric
+        - python <3
+        - numpy 1.8.*  # Because that is how cdat-lite has been built, and we can't re-build cdat-lite currently.
         - setuptools
         - cdat-lite
         - udunits 2.*
     run:
         - python
-        - numpy  # must be <1.9 due to use of oldnumeric
+        - numpy 1.8.*
         - setuptools
         - cdat-lite
         - udunits 2.*

@@ -17,7 +17,8 @@ requirements:
     - python
     - setuptools
     - six
-    - numpy
+    # We must bake the numpy version into the build string.
+    - numpy *
     - cython
     - proj4
     - geos

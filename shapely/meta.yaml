@@ -17,7 +17,8 @@ requirements:
     - python
     - geos >=3.4
     - cython
-    - numpy
+    # The version of numpy needs to be baked into the build string for Shapely.
+    - numpy *
   run:
     - python
     - geos

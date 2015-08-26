@@ -14,7 +14,7 @@ build:
 
 requirements:
     build:
-        - python
+        - python <3
         - numpy <1.9  # Depends on oldnumeric, which was removed in 1.9
         - setuptools
         - libnetcdf 4.*
