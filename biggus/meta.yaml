@@ -7,7 +7,7 @@ source:
     git_tag: v0.10.0
 
 build:
-  number: 2
+  number: 3
 
 requirements:
     build:
@@ -15,7 +15,7 @@ requirements:
         - setuptools
 
     run:
-        - python >=2.7
+        - python
         - numpy
 
 about:
