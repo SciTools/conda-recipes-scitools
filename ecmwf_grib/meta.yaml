@@ -15,7 +15,8 @@ build:
 
 requirements:
     build:
-        - python
+        - python  # [not osx]
+        - python <3  # [osx]
         # We must bake the numpy version into the build string.
         - numpy *
         - jasper
