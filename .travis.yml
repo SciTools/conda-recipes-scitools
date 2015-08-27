@@ -13,9 +13,6 @@ env:
         # Add the BINSTAR_TOKEN environment variable. This has been generated with "" then "travis encrypt BINSTAR_TOKEN=<token_id> --repo SciTools/conda-recipes-scitools"
         secure: "EM0pZljYUF5KoJPKbJcNLrAoc6x0iV7QsSbJHRPF3GViV8dX8d0O0HB7Bh++84uf/114eLhhmRCu82YuuehVKFhx7oE461jrdeoPzMK9Em80iufw6q0/gzNaWpOlQNPFqAk19ElV+ADfNp8Ju2kw1FHg/ggEqlp49fPkPPKoG7g="
 
-    matrix:
-        - CONDA_PY=27  CONDA_NPY=18
-
 addons:
     apt:
         packages:
@@ -31,18 +28,13 @@ before_install:
     - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install check; fi
 
 install:
-    - wget https://raw.githubusercontent.com/pelson/Obvious-CI/v0.1.0/bootstrap-obvious-ci-and-miniconda.py
+    - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
     - python bootstrap-obvious-ci-and-miniconda.py ~/miniconda x64 2 --without-obvci && source ~/miniconda/bin/activate root
     - conda config --set show_channel_urls True
     - conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci
     - conda config --add channels http://conda.binstar.org/SciTools
     - obvci_install_conda_build_tools.py
 
-      # Workaround for obvious-CI issue.
-      # See https://github.com/SciTools/conda-recipes-scitools/pull/83
-      # and https://github.com/pelson/Obvious-CI/pull/13
-    - conda install --yes anaconda-client
-
 script:
-    - obvci_conda_build_dir.py ./ SciTools --channel main
+    - obvci_conda_build_dir.py ./ SciTools --channel main --build-condition "numpy >=1.8" "python >=2.7,<3|>=3.4"
 
