@@ -3,18 +3,24 @@ environment:
   CONDA_INSTALL_LOCN: "C:\\conda"
 
   # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
-  # /E:ON and /V:ON options are not enabled in the batch script intepreter
+  # /E:ON and /V:ON options are not enabled in the batch script interpreter
   # See: http://stackoverflow.com/a/13751649/163740
   CMD_IN_ENV: "cmd /E:ON /V:ON /C obvci_appveyor_python_build_env.cmd"
 
   BINSTAR_TOKEN:
     # Generated with "binstar auth --create --name ScitoolsRecipesAppVeyor -o SciTools" and encrypted on ci.appveyor.com/tools/encrypt. 
     secure: DFD+Qz5YcJOb7zqewQw1UCAFql9MEq6QxrsUiZVKpTSNHX8O5vFmJtKwI7pzP3Nt
- 
+
   matrix:
     # Note: Because we have to separate the py2 and py3 components due to compiler version, we have a race condition for non-python packages.
     # Not sure how to resolve this, but maybe we should be tracking the VS version in the build string anyway? 
     - TARGET_ARCH: "x86"
+      CONDA_PY: "27"
+      PY_CONDITION: "python >=2.7,<3"
+    - TARGET_ARCH: "x86"
+      CONDA_PY: "3"
+      PY_CONDITION: "python >=3.4"
+    - TARGET_ARCH: "x64"
       CONDA_PY: "27"
       PY_CONDITION: "python >=2.7,<3"
     - TARGET_ARCH: "x64"
