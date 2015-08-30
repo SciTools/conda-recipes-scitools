@@ -3,7 +3,7 @@
 language: c
 
 os:
- - linux
+# - linux
  - osx
 
 sudo: false
@@ -24,8 +24,7 @@ addons:
             - check
 
 before_install:
-    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update; fi
-    - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install check; fi
+    - brew update && brew install check
 
 install:
     - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
