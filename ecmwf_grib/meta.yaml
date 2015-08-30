@@ -10,7 +10,8 @@ source:
         - py3k.patch
 
 build:
-    number: 3
+    number: 3  # [not linux]
+    number: 4  # [linux]
     detect_binary_files_with_prefix: true
 
 requirements:
