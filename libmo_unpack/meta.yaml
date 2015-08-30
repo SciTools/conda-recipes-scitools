@@ -7,7 +7,8 @@ source:
     git_rev: v3.0
 
 build:
-    number: 0
+    number: 0  # [not linux]
+    number: 1  # [linux]
 
 about:
     home: https://github.com/SciTools/libmo_unpack

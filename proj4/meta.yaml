@@ -7,7 +7,7 @@ source:
   url: http://download.osgeo.org/proj/proj-4.9.1.tar.gz
 
 build:
-  number: 1  # [win]
+  number: 1  # [not osx]
 
 requirements:
   run:
