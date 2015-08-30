@@ -14,8 +14,7 @@ requirements:
     - expat  # [win]
 
 build:
-    number: 5 # [win]
-    number: 4 # [not win]
+    number: 5
     detect_binary_files_with_prefix: true
 
 test:
