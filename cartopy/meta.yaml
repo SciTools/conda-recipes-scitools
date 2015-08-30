@@ -10,7 +10,8 @@ source:
     - cartopy.win.patch  # [win]
 
 build:
-  number: 0
+  number: 0  # [not linux]
+  number: 1  # [linux]
 
 requirements:
   build:
