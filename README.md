@@ -3,6 +3,7 @@
 [![Build Status](https://secure.travis-ci.org/SciTools/conda-recipes-scitools.png)](http://travis-ci.org/SciTools/conda-recipes-scitools)
 <span>&nbsp;</span>
 [![Build status](https://ci.appveyor.com/api/projects/status/i4qqobqxvxwis666?svg=true)](https://ci.appveyor.com/project/scitools/conda-recipes-scitools-311)
+[![Circle CI](https://circleci.com/gh/SciTools/conda-recipes-scitools/tree/master.svg?style=svg)](https://circleci.com/gh/SciTools/conda-recipes-scitools/tree/master)
 
 (C) British Crown Copyright 2014, Met Office
 
