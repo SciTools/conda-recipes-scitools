@@ -1,36 +1,35 @@
 package:
-  name: shapely
-  version: 1.5.8
+    name: shapely
+    version: 1.5.11
 
 source:
-  git_url: https://github.com/Toblerity/Shapely.git
-  git_tag: 1.5.8
-  patches:
-    - geos_c.win.patch      # [win]
-    - osx-geos.patch        # [osx]
-
+    fn: Shapely-1.5.11.tar.gz
+    url: https://pypi.python.org/packages/source/S/Shapely/Shapely-1.5.11.tar.gz
+    md5: 37530a4f9418917c9afd38fcd15bc891
+    patches:
+        - geos_c.win.patch  # [win]
+        - osx-geos.patch # [osx]
 build:
-  number: 2
+    number: 0
 
 requirements:
-  build:
-    - python
-    - geos >=3.4
-    - cython
-    # The version of numpy needs to be baked into the build string for Shapely.
-    - numpy *
-  run:
-    - python
-    - geos
-    - numpy
+    build:
+        - python
+        - geos >=3.4
+        - cython
+        - numpy
+    run:
+        - python
+        - geos >=3.4
+        - numpy
 
 test:
-  imports:
-    - shapely
-    - shapely.speedups._speedups
-    - shapely.vectorized._vectorized
+    imports:
+        - shapely
+        - shapely.speedups._speedups
+        - shapely.vectorized._vectorized
 
 about:
-  home: https://github.com/Toblerity/Shapely
-  license: BSD
-  summary: 'Python package for manipulation and analysis of geometric objects in the Cartesian plane'
+    home: https://github.com/Toblerity/Shapely
+    license: BSD
+    summary: 'Python package for manipulation and analysis of geometric objects in the Cartesian plane'
