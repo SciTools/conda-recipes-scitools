@@ -24,7 +24,7 @@ cat << EOF | docker run -i \
                         bash || exit $?
 
 if [ "${BINSTAR_TOKEN}" ];then
-    echo 
+    echo
     export BINSTAR_TOKEN=${BINSTAR_TOKEN}
 fi
 
@@ -34,12 +34,11 @@ echo "$config" > ~/.condarc
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
 
-conda install anaconda-client
+conda install --yes anaconda-client
 conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel
 
 obvci_conda_build_dir.py /conda-recipes $UPLOAD_OWNER --build-condition "numpy >=1.8" "python >=2.7,<3|>=3.4,<3.5"
-    
-EOF
 
+EOF
