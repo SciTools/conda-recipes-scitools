@@ -30,7 +30,7 @@ requirements:
     - owslib
     - pyshp
     - pyepsg
-  
+
   run:
     - python
     - six
