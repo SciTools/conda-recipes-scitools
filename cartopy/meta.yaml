@@ -11,7 +11,6 @@ source:
 
 build:
   number: 2
-  number: 2
 
 requirements:
   build:
@@ -20,7 +19,7 @@ requirements:
     - six
     - numpy x.x
     - cython
-    - proj4
+    - proj.4
     - geos
     # On OSX We need to effectively pin the geos version to the
     # one used by the specific shapely being targetted (we're letting
