@@ -7,10 +7,11 @@ source:
   url: http://download.osgeo.org/proj/proj-4.9.1.tar.gz
 
 build:
+  number: 0  # [osx]
   number: 1  # [not osx]
 
-requirements:
-  run:
+requirements:  # [win]
+  run:  # [win]
     # The VS version is important. See # https://github.com/SciTools/conda-recipes-scitools/issues/94.
     - python  # [win]
 

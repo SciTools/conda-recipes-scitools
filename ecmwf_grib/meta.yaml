@@ -18,13 +18,12 @@ requirements:
     build:
         - python  # [not osx]
         - python <3  # [osx]
-        # We must bake the numpy version into the build string.
-        - numpy *
+        - numpy x.x
         - jasper
 
     run:
         - python
-        - numpy
+        - numpy x.x
         - jasper
         - six
 

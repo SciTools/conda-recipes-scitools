@@ -28,8 +28,13 @@ if [ "${BINSTAR_TOKEN}" ];then
     export BINSTAR_TOKEN=${BINSTAR_TOKEN}
 fi
 
+export CONDA_NPY='19'
 export PYTHONUNBUFFERED=1
 echo "$config" > ~/.condarc
+
+# Update both obvious-ci and conda-build to get latest "numpy x.x" specification support.
+conda install -c http://conda.anaconda.org/pelson/channel/development --yes obvious-ci --force
+conda update conda conda-build --yes --force
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
@@ -39,6 +44,6 @@ conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel
 
-obvci_conda_build_dir.py /conda-recipes $UPLOAD_OWNER --build-condition "numpy >=1.8" "python >=2.7,<3|>=3.4,<3.5"
+obvci_conda_build_dir /conda-recipes $UPLOAD_OWNER --build-condition "numpy >=1.8" "python >=2.7,<3|>=3.4,<3.5"
 
 EOF

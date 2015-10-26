@@ -12,14 +12,13 @@ build:
 requirements:
   build:
     - python
-    # We must bake the numpy version into the build string.
-    - numpy *
+    - numpy x.x
     - setuptools
     - cython
     - libmo_unpack # [not win]
   run:
     - python
-    - numpy
+    - numpy x.x
     - libmo_unpack # [not win]
 
 test:
