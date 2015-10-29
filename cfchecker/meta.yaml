@@ -10,8 +10,8 @@ source:
         - patch.diff  # [osx]
 
 build:
+    skip: True  # [win]
     number: 1
-
     entry_points:
         - cfchecks = cfchecker:cfchecks_main
 

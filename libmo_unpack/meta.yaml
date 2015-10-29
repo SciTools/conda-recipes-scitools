@@ -7,6 +7,7 @@ source:
     git_rev: v3.0
 
 build:
+    skip: True  # [win]
     number: 0  # [not linux]
     number: 2  # [linux]
 
