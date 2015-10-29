@@ -10,6 +10,7 @@ source:
         - patch.diff  # [osx]
 
 build:
+    skip: True  # [win]
     number: 2
 
 requirements:
