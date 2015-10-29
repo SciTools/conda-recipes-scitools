@@ -17,11 +17,11 @@ requirements:
         - python
         - geos >=3.4
         - cython
-        - numpy
+        - numpy x.x
     run:
         - python
         - geos >=3.4
-        - numpy
+        - numpy x.x
 
 test:
     imports:

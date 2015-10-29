@@ -18,8 +18,7 @@ requirements:
     - python
     - setuptools
     - six
-    # We must bake the numpy version into the build string.
-    - numpy *
+    - numpy x.x
     - cython
     - proj4
     - geos
@@ -38,7 +37,7 @@ requirements:
     - nose
     - pillow
     - owslib
-    - numpy
+    - numpy x.x
     - proj4
     - shapely >=1.5.6
     - scipy
