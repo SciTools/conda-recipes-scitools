@@ -16,6 +16,7 @@ requirements:
         - biggus >=0.10
         - cartopy >=0.12
         - netcdf4
+        - numpy x.x
         - udunits 2.*
         - pyke
         - setuptools
