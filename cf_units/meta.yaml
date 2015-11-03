@@ -14,7 +14,7 @@ requirements:
         - python <3  # See https://github.com/SciTools/cf_units/pull/22 for progress.
     run:
         - python
-        - udunits 2.*
+        - udunits2
         - netcdf4
         - numpy
 

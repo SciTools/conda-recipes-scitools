@@ -17,7 +17,7 @@ requirements:
         - cartopy >=0.12
         - netcdf4
         - numpy x.x
-        - udunits 2.*
+        - udunits2
         - pyke
         - setuptools
         - libmo_unpack  # [not win]
@@ -32,7 +32,7 @@ requirements:
         # There is a numpy C ABI dependency for as long as we have a C extension (pp_packing).
         - numpy x.x
         - pyke
-        - udunits 2.*
+        - udunits2
         - libmo_unpack  # [not win]
 
 test:
