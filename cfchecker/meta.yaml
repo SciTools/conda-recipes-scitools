@@ -21,13 +21,13 @@ requirements:
         - numpy 1.8.*  # Because that is how cdat-lite has been built, and we can't re-build cdat-lite currently.
         - setuptools
         - cdat-lite
-        - udunits 2.*
+        - udunits2
     run:
         - python
         - numpy 1.8.*
         - setuptools
         - cdat-lite
-        - udunits 2.*
+        - udunits2
 
 test:
     commands:
