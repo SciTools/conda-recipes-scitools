@@ -9,8 +9,7 @@ source:
 
 build:
     skip: True  # [win]
-    number: 2  # [not linux]
-    number: 3  # [linux]
+    number: 4
 
 requirements:
     build:

@@ -12,5 +12,7 @@ then
     CFLAGS="$CFLAGS -D_DARWIN_SOURCE"
 fi
 ./configure --prefix=$PREFIX CFLAGS="$CFLAGS"
+
 make
+make check
 make install

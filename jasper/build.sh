@@ -8,4 +8,5 @@ fi
 sh configure --prefix=$PREFIX --enable-shared --disable-debug --disable-dependency-tracking
 
 make
+make check
 make install
