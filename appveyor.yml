@@ -41,12 +41,12 @@ install:
     - cmd: set PATH=%PATH%;%CONDA_INSTALL_LOCN%;%CONDA_INSTALL_LOCN%\scripts
     - cmd: set PYTHONUNBUFFERED=1
 
-    - cmd: conda install -c http://conda.binstar.org/pelson/channel/development --yes --quiet obvious-ci --force
+    - cmd: conda config --set show_channel_urls yes
+
+    - cmd: conda install -c conda-forge obvious-ci conda-build --yes --quiet
     - cmd: obvci_install_conda_build_tools.py
-    - cmd: conda update conda-build --yes
 
     - cmd: conda config --add channels scitools
-    - cmd: conda config --set show_channel_urls yes
     - cmd: conda info
 
 # Skip .NET project specific build phase.
