@@ -15,4 +15,9 @@ CFLAGS=${ARCH} CPPFLAGS=${ARCH} CXXFLAGS=${ARCH} LDFLAGS=${ARCH} FFLAGS=${ARCH} 
     ./configure --prefix=$PREFIX --without-jni
 
 make
+
+if [[ $(uname) == Linux ]]; then
+    make check
+fi
+
 make install

@@ -3,6 +3,11 @@
 LDFLAGS="-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" PYTHON="$PYTHON" PYTHON_LDFLAGS="$PREFIX/lib" CFLAGS="-fPIC -I$PREFIX/include" ./configure --with-jasper=$PREFIX/lib --disable-fortran --prefix=$PREFIX --enable-python
 
 make
+
+if [[ $(uname) == Linux ]]; then
+    make check
+fi
+
 make install
 
 

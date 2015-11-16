@@ -8,8 +8,7 @@ source:
 
 build:
     skip: True  # [win]
-    number: 0  # [not linux]
-    number: 2  # [linux]
+    number: 3
 
 about:
     home: https://github.com/SciTools/libmo_unpack
