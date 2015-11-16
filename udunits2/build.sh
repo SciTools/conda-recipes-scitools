@@ -8,6 +8,7 @@ fi
 
 ./configure --prefix=$PREFIX
 make
+make check
 make install
 
 if [[ $(uname) == Darwin ]]; then

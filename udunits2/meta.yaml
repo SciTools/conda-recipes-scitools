@@ -1,11 +1,11 @@
 package:
     name: udunits2
-    version: 2.2.17
+    version: 2.2.20
 
 source:
-    fn: v2.2.17.tar.gz
-    url: https://github.com/Unidata/UDUNITS-2/archive/v2.2.17.tar.gz
-    sha1: 3dfb7b1f18e21ac5366127778bbfd50ab5b7cf0a
+    fn: v2.2.20.tar.gz
+    url: https://github.com/Unidata/UDUNITS-2/archive/v2.2.20.tar.gz
+    sha1: a0d30024af16749a4a5ca60133b32735ae52f9e2
 
 requirements:
   build:
@@ -14,7 +14,7 @@ requirements:
     - expat  # [win]
 
 build:
-    number: 5
+    number: 0
     detect_binary_files_with_prefix: true
 
 test:
@@ -24,4 +24,5 @@ test:
 
 about:
   home: http://www.unidata.ucar.edu/software/udunits/
+  license: https://github.com/Unidata/UDUNITS-2/blob/master/COPYRIGHT
   summary: The UDUNITS package supports units of physical quantities.
