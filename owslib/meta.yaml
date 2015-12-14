@@ -1,11 +1,11 @@
 package:
   name: owslib
-  version: 0.10.0
+  version: 0.10.3
 
 source:
-
-  git_url: https://github.com/geopython/OWSLib.git
-  git_tag: 0.10.0
+  fn: OWSLib-0.10.3.tar.gz
+  url: https://pypi.python.org/packages/source/O/OWSLib/OWSLib-0.10.3.tar.gz
+  md5: 07ebf7dbaebf4d935c7636bb96732103
 
 requirements:
   build:
@@ -21,7 +21,6 @@ requirements:
     - pyproj
 
 test:
-  # Python imports
   imports:
     - owslib.coverage
     - owslib.waterml
