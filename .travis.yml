@@ -10,8 +10,9 @@ sudo: false
 
 env:
     global:
-        # Add the BINSTAR_TOKEN environment variable. This has been generated with "" then "travis encrypt BINSTAR_TOKEN=<token_id> --repo SciTools/conda-recipes-scitools"
-        secure: "EM0pZljYUF5KoJPKbJcNLrAoc6x0iV7QsSbJHRPF3GViV8dX8d0O0HB7Bh++84uf/114eLhhmRCu82YuuehVKFhx7oE461jrdeoPzMK9Em80iufw6q0/gzNaWpOlQNPFqAk19ElV+ADfNp8Ju2kw1FHg/ggEqlp49fPkPPKoG7g="
+        # Add the BINSTAR_TOKEN environment variable. This has been generated with "anaconda auth --create --name conda-recipes-scitools-2016 -o SciTools"
+        # then "travis encrypt BINSTAR_TOKEN=<token_id> --repo SciTools/conda-recipes-scitools"
+        secure: "gUnBiclSuzSUSyJCVM2acIjry1VoqDlqWCkIDYx4VHJfRn7VXrav+G0cn2nYW7L8ch3/tnLqXLNEYRoBq8tbNOoOnnksqd0zTDNuUD4HkaQ47fNTsSbBVDzgDSiTvj9hjUFM7hQ0ju1BffG/uu43gl1mOaSh+R5/jdJ+iGlF+gg="
 
 addons:
     apt:
