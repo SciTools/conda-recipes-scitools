@@ -8,6 +8,8 @@ source:
 
 build:
     number: 0
+    # See https://github.com/SciTools/cartopy/pull/676
+    skip: True  # [py35]
 
 requirements:
     build:
