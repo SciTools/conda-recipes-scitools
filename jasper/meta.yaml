@@ -9,7 +9,7 @@ source:
 
 build:
     skip: True  # [win]
-    number: 4
+    number: 5
 
 requirements:
     build:
@@ -20,6 +20,7 @@ requirements:
 test:
     commands:
         - jasper --version
+        - conda inspect linkages jasper --name _test
 
 about:
   home: http://www.ece.uvic.ca/~frodo/jasper/
