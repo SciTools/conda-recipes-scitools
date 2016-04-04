@@ -33,13 +33,14 @@ export PYTHONUNBUFFERED=1
 echo "$config" > ~/.condarc
 
 # Update both obvious-ci and conda-build to get latest "numpy x.x" specification support.
-conda install -c conda-forge --yes obvious-ci conda-build
+conda install --yes obvious-ci --channel conda-forge
 conda update conda conda-build --yes --force
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
 
 conda install --yes anaconda-client
+conda install --yes conda-build=1.18.2
 conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran

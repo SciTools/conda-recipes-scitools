@@ -51,8 +51,9 @@ install:
 
     - cmd: conda config --set show_channel_urls yes
 
-    - cmd: conda install -c conda-forge obvious-ci conda-build --yes --quiet
+    - cmd: conda install --yes --quiet obvious-ci --channel conda-forge
     - cmd: obvci_install_conda_build_tools.py
+    - cmd: conda install --yes conda-build=1.18.2
 
     - cmd: conda config --add channels scitools
     - cmd: conda info
