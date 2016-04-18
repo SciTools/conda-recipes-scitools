@@ -7,14 +7,16 @@ source:
     git_tag: ESMF_7_0_0
 
 build:
-    number: 0
-    skip: True  # [win]
+    number: 1
+    skip: True  # [win or osx]
 
 requirements:
     build:
         - netcdf-fortran
+        - libnetcdf 4.2.1.1
     run:
         - netcdf-fortran
+        - libnetcdf 4.2.1.1
 
 test:
     commands:
@@ -24,9 +26,3 @@ about:
     home: http://www.earthsystemmodeling.org/
     license: The University of Illinois/NCSA Open Source License (NCSA)
     summary: The Earth System Modeling Framework (ESMF) is software for building and coupling weather, climate, and related models.
-
-extra:
-    recipe-maintainers:
-        - ocefpaf
-        - bekozi
-        - rokuingh
