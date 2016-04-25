@@ -7,8 +7,8 @@ source:
     git_tag: ESMF_7_0_0
 
 build:
-    number: 0
-    skip: True  # [win or py3k]
+    number: 1
+    skip: True  # [win or py3k or osx]
 
 requirements:
     build:
@@ -28,9 +28,3 @@ about:
     home: https://www.earthsystemcog.org/projects/esmpy/
     license: The University of Illinois/NCSA Open Source License (NCSA)
     summary: ESMPy is a Python interface to the Earth System Modeling Framework (ESMF) regridding utility.
-
-extra:
-    recipe-maintainers:
-        - ocefpaf
-        - bekozi
-        - rokuingh

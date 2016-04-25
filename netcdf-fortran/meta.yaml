@@ -7,16 +7,15 @@ source:
     git_tag: v4.4.3
 
 build:
-    number: 0
-    skip: True  # [win]
+    number: 1
+    skip: True  # [win or osx]
 
 requirements:
     build:
-        - libnetcdf
+        - libnetcdf 4.2.1.1
         - krb5
     run:
-        - libnetcdf
-        - libgcc
+        - libnetcdf 4.2.1.1
         - krb5
 
 test:
@@ -27,8 +26,3 @@ about:
     home: https://github.com/Unidata/netcdf-fortran
     license: http://www.unidata.ucar.edu/software/netcdf/copyright.html
     summary: Unidata NetCDF Fortran Library
-
-extra:
-    recipe-maintainers:
-        - ocefpaf
-        - bekozi
