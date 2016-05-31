@@ -1,0 +1,49 @@
+package:
+    name: iris
+    version: "1.10.dev0"
+
+source:
+    fn: iris-master.tar.gz
+    url: https://github.com/SciTools/iris/archive/master.tar.gz
+    patches:
+        # Issue reported in https://github.com/SciTools/iris/issues/2004.
+        # We work around this in build.sh.
+        - no_compile_setup.patch  # [osx]
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - numpy
+        - scipy
+        - biggus
+        - cartopy
+        - netcdf4
+        - cf_units
+        - pyke
+        - mo_pack  # [not win]
+    run:
+        - python
+        - numpy
+        - scipy
+        - biggus
+        - cartopy
+        - netcdf4
+        - cf_units
+        - pyke
+        - mo_pack  # [not win]
+        - matplotlib
+        - ecmwf_grib >=1.12.1  # [not win and not py3k]
+
+test:
+    imports:
+        - iris
+        - iris.fileformats._pyke_rules.compiled_krb
+
+about:
+    home: http://www.scitools.org.uk/iris
+    license: GNU Lesser General Public License
+    summary: Analyse and visualise meteorological and oceanographic data sets.
