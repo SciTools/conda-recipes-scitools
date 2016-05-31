@@ -5,6 +5,10 @@ package:
 source:
     fn: iris-master.tar.gz
     url: https://github.com/SciTools/iris/archive/master.tar.gz
+    patches:
+        # Issue reported in https://github.com/SciTools/iris/issues/2004.
+        # We work around this in build.sh.
+        - no_compile_setup.patch  # [osx]
 
 build:
     number: 0
