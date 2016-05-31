@@ -16,3 +16,7 @@ echo "udunits2_path = $PREFIX/lib/libudunits2.${EXT}" >> $SITECFG
 rm -rf lib/iris/tests/results lib/iris/tests/*.npz
 
 $PYTHON -sE setup.py --with-unpack build_ext "-I${PREFIX}/include" "-L${PREFIX}/lib" "-R${PREFIX}/lib" install --single-version-externally-managed --record record.txt
+
+# Without this line, the OS X build fails reproducibly with
+# https://github.com/conda-forge/iris-feedstock/pull/2#issuecomment-217468453.
+python -c "import iris.fileformats.netcdf; iris.fileformats.netcdf._pyke_kb_engine()"
