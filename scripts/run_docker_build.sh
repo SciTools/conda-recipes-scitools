@@ -45,6 +45,6 @@ conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
 
-obvci_conda_build_dir /conda-recipes $UPLOAD_OWNER --build-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
+obvci_conda_build_dir /conda-recipes $UPLOAD_OWNER --channel dev --build-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
 
 EOF
