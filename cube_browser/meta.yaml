@@ -13,7 +13,7 @@ requirements:
     build:
         - python
     run:
-        - iris >1.9
+        - iris 1.10*
         - ipywidgets 4.1.1
         - matplotlib
 
