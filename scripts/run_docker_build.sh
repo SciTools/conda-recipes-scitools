@@ -10,6 +10,7 @@ config=$(cat <<CONDARC
 
 channels:
  - ${UPLOAD_OWNER}
+ - ${UPLOAD_OWNER}/label/dev
  - defaults
 
 show_channel_urls: True
@@ -20,7 +21,7 @@ CONDARC
 cat << EOF | docker run -i \
                         -v ${REPO_ROOT}:/conda-recipes \
                         -a stdin -a stdout -a stderr \
-                        $IMAGE_NAME \
+                        ${IMAGE_NAME} \
                         bash || exit $?
 
 if [ "${BINSTAR_TOKEN}" ];then
@@ -30,7 +31,7 @@ fi
 
 export CONDA_NPY='19'
 export PYTHONUNBUFFERED=1
-echo "$config" > ~/.condarc
+echo "${config}" > ~/.condarc
 
 # Update both obvious-ci and conda-build to get latest "numpy x.x" specification support.
 conda install --yes obvious-ci --channel conda-forge
@@ -45,6 +46,6 @@ conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
 
-obvci_conda_build_dir /conda-recipes $UPLOAD_OWNER --channel dev --build-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
+obvci_conda_build_dir /conda-recipes ${UPLOAD_OWNER} --channel dev --build-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
 
 EOF
