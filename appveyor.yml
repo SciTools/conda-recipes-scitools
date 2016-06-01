@@ -55,7 +55,8 @@ install:
     - cmd: obvci_install_conda_build_tools.py
     - cmd: conda install --yes conda-build=1.18.2
 
-    - cmd: conda config --add channels scitools
+    - cmd: conda config --add channels scitools 
+    - cmd: conda config --add channels scitools/label/dev
     - cmd: conda info
 
 # Skip .NET project specific build phase.

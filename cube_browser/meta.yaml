@@ -12,10 +12,15 @@ build:
 requirements:
     build:
         - python
+        - setuptools
     run:
         - iris 1.10*
-        - ipywidgets 4.1.1
+        - ipywidgets 4.1*
         - matplotlib
+
+build:
+    script:
+        - python setup.py install --single-version-externally-managed --record record.txt
 
 test:
     imports:
@@ -23,5 +28,5 @@ test:
     
 about:
     home: http://scitools.org.uk/cube_browser
-    license: BSD
+    license: BSD 3-clause
     summary: Working with Jupyter Notebooks to interactively visualise Iris cubes.
