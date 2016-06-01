@@ -1,0 +1,27 @@
+package:
+    name: cube_browser
+    version: "0.1.0"
+
+source:
+    fn: cube_browser-master.tar.gz
+    url: http://github.com/SciTools/cube_browser/archive/master.tar.gz
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+    run:
+        - iris >1.9
+        - ipywidgets 4.1.1
+        - matplotlib
+
+test:
+    imports:
+        - cube_browser
+    
+about:
+    home: http://scitools.org.uk/cube_browser
+    license: BSD
+    summary: Working with Jupyter Notebooks to interactively visualise Iris cubes.
