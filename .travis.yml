@@ -36,6 +36,7 @@ install:
     - conda install obvious-ci --yes -c conda-forge
     - conda config --add channels scitools
     - conda config --add channels scitools/label/dev
+    - conda config --add channels conda-forge
     - obvci_install_conda_build_tools.py
     - conda install --yes conda-build=1.18.2
 
