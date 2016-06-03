@@ -11,6 +11,7 @@ config=$(cat <<CONDARC
 channels:
  - ${UPLOAD_OWNER}
  - ${UPLOAD_OWNER}/label/dev
+ - conda-forge
  - defaults
 
 show_channel_urls: True

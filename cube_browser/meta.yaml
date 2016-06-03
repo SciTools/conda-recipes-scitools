@@ -7,15 +7,15 @@ source:
     url: http://github.com/SciTools/cube_browser/archive/master.tar.gz
 
 build:
-    number: 0
+    number: 1
 
 requirements:
     build:
         - python
         - setuptools
     run:
+        - ipywidgets 5.1*
         - iris 1.10*
-        - ipywidgets 4.1*
         - matplotlib
 
 build:

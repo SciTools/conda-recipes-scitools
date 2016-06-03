@@ -57,6 +57,7 @@ install:
 
     - cmd: conda config --add channels scitools 
     - cmd: conda config --add channels scitools/label/dev
+    - cmd: conda config --add channels conda-forge
     - cmd: conda info
 
 # Skip .NET project specific build phase.
