@@ -1,13 +1,13 @@
 package:
     name: cube_browser
-    version: "0.1.0.dev0"
+    version: "0.2.0.dev0"
 
 source:
     fn: cube_browser-master.tar.gz
     url: http://github.com/SciTools/cube_browser/archive/master.tar.gz
 
 build:
-    number: 1
+    number: 0
 
 requirements:
     build:
@@ -18,7 +18,6 @@ requirements:
         - ipywidgets 5.1*
         - iris 1.10*
         - matplotlib
-        - traits
 
 build:
     script:
