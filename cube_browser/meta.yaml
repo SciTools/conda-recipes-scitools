@@ -7,7 +7,7 @@ source:
     url: http://github.com/SciTools/cube_browser/archive/master.tar.gz
 
 build:
-    number: 1
+    number: 2
 
 requirements:
     build:
