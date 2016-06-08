@@ -1,6 +1,6 @@
 package:
     name: iris
-    version: "1.10.dev0"
+    version: "1.10.dev1"
 
 source:
     fn: iris-master.tar.gz
