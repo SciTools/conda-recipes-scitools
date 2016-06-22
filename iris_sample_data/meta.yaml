@@ -1,0 +1,30 @@
+package:
+    name: iris_sample_data
+    version: "2.0.0"
+
+source:
+    git_url: https://github.com/SciTools/iris-sample-data.git
+    git_tag: v2.0.0
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - python
+        - setuptools
+    run:
+        - python
+
+build:
+    script:
+        - python setup.py install --single-version-externally-managed --record record.txt
+
+test:
+    imports:
+        - iris_sample_data
+
+about:
+    home: http://scitools.org.uk/iris_sample_data
+    license: Open Government
+    summary: Iris sample data.
