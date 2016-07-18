@@ -9,9 +9,9 @@ IMAGE_NAME="pelson/obvious-ci:latest_x64"
 config=$(cat <<CONDARC
 
 channels:
- - ${UPLOAD_OWNER}
  - ${UPLOAD_OWNER}/label/dev
  - conda-forge
+ - ${UPLOAD_OWNER}
  - defaults
 
 show_channel_urls: True
