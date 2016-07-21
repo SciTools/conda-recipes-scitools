@@ -1,6 +1,6 @@
 package:
     name: iris_grib
-    version: "0.1.0.dev1"
+    version: "0.1.0.dev2"
 
 source:
     fn: master.zip
@@ -14,12 +14,13 @@ requirements:
     build:
         - python <3
         - setuptools
-        - python-ecmwf_grib # [not win]
+        - ecmwf_grib ==1.14.2 # [not win]
         - iris
     run:
         - python <3
-        - python-ecmwf_grib # [not win]
+        - ecmwf_grib ==1.14.2 # [not win]
         - iris
+
 build:
     script:
         - python setup.py install --single-version-externally-managed --record record.txt
