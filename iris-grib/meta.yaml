@@ -1,6 +1,6 @@
 package:
     name: iris_grib
-    version: "0.1.0.dev3"
+    version: "0.1.0.dev4"
 
 source:
     fn: master.zip
