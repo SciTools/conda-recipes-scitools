@@ -1,0 +1,35 @@
+package:
+    name: iris_grib
+    version: "0.9.0"
+
+source:
+    git_url: https://github.com/SciTools/iris-grib.git
+    git_tag: v0.9.0
+
+build:
+    skip: True  # [win]
+    number: 0
+
+requirements:
+    build:
+        - python <3
+        - setuptools
+        - ecmwf_grib ==1.14.2 # [not win]
+        - iris
+    run:
+        - python <3
+        - ecmwf_grib ==1.14.2 # [not win]
+        - iris
+
+build:
+    script:
+        - python setup.py install --single-version-externally-managed --record record.txt
+
+test:
+    imports:
+        - iris_grib # [not win]
+
+about:
+    home: http://scitools.org.uk/iris-grib
+    license: LGPL
+    summary: Iris GRIB interface
