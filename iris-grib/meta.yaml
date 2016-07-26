@@ -7,25 +7,23 @@ source:
     git_tag: v0.9.0
 
 build:
-    skip: True  # [win]
-    number: 1
-
-requirements:
-    build:
-        - python <3
-        - setuptools
-        - ecmwf_grib # [not win]
-    run:
-        - python <3
-        - ecmwf_grib # [not win]
-
-build:
+    skip: True  # [win or py3k]
+    number: 2
     script:
         - python setup.py install --single-version-externally-managed --record record.txt
 
-test:
-    imports:
-        - iris_grib # [not win]
+requirements:
+    build:
+        - python
+        - setuptools
+        - ecmwf_grib
+    run:
+        - python
+        - ecmwf_grib
+
+# test:
+#     imports:
+#         - iris_grib
 
 about:
     home: http://scitools.org.uk/iris-grib
