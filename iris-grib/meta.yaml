@@ -8,18 +8,16 @@ source:
 
 build:
     skip: True  # [win]
-    number: 0
+    number: 1
 
 requirements:
     build:
         - python <3
         - setuptools
-        - ecmwf_grib ==1.14.2 # [not win]
-        - iris
+        - ecmwf_grib # [not win]
     run:
         - python <3
-        - ecmwf_grib ==1.14.2 # [not win]
-        - iris
+        - ecmwf_grib # [not win]
 
 build:
     script:
