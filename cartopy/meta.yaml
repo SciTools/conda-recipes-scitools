@@ -1,11 +1,11 @@
 package:
   name: cartopy
-  version: 0.13.1
+  version: 0.14.2
 
 source:
-  git_url: https://github.com/SciTools/cartopy.git
-  git_tag: v0.13.1
-
+  fn: cartopy-0.14.2.tar.gz
+  url: https://github.com/SciTools/cartopy/archive/v0.14.2.tar.gz
+  sha256: 7ee4d38871b742cdde22f1982a10619bbe103c63575364988bd0be9c0ba57b6e
   patches:
     - cartopy.win.patch  # [win]
 
@@ -16,7 +16,6 @@ build:
 requirements:
   build:
     - python
-    - python >=2.7,<3.5  # See https://github.com/SciTools/cartopy/pull/676
     - setuptools
     - six
     - numpy x.x
@@ -30,10 +29,10 @@ requirements:
     - owslib
     - pyshp
     - pyepsg
+    - msinttypes  # [win]
 
   run:
     - python
-    - python >=2.7,<3.5
     - six
     - mock
     - nose
