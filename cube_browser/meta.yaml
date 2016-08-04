@@ -1,10 +1,10 @@
 package:
     name: cube_browser
-    version: "1.0.0"
+    version: "1.1"
 
 source:
     git_url: https://github.com/SciTools/cube_browser.git
-    git_tag: v1.0
+    git_tag: v1.1
 
 build:
     number: 0
