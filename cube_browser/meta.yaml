@@ -8,6 +8,8 @@ source:
 
 build:
     number: 0
+    script:
+        - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
     build:
@@ -19,10 +21,6 @@ requirements:
         - iris 1.10*
         - matplotlib
         - iris_sample_data
-
-build:
-    script:
-        - python setup.py install --single-version-externally-managed --record record.txt
 
 test:
     imports:
