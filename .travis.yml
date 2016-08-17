@@ -32,6 +32,8 @@ install:
     - export CONDA_NPY=19
     # Set the name of the channel label to upload to.
     - export LABEL_NAME=main
+    # Only run the upload if the binstar token is present.
+    - export UPLOAD_CHANNELS=$(if [ -z ${BINSTAR_TOKEN+x} ]; then echo ""; else echo "--upload-channels scitools/label/${LABEL_NAME}"; fi)
     - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
     - python bootstrap-obvious-ci-and-miniconda.py ~/miniconda x64 3 --without-obvci && source ~/miniconda/bin/activate root
     - conda config --add channels scitools
@@ -41,4 +43,4 @@ install:
     - conda install -n root --yes --quiet jinja2 anaconda-client
 
 script:
-    - conda-build-all ./ --inspect-channels scitools/label/${LABEL_NAME} --upload-channels scitools/label/${LABEL_NAME} --matrix-condition "numpy >=1.8,,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
+    - conda-build-all ./ --inspect-channels scitools/label/${LABEL_NAME} ${UPLOAD_CHANNELS} --matrix-condition "numpy >=1.8,,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
