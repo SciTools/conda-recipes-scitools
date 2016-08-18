@@ -5,6 +5,7 @@
 REPO_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 UPLOAD_OWNER="scitools"
 IMAGE_NAME="pelson/obvious-ci:latest_x64"
+LABEL_NAME="main"
 
 config=$(cat <<CONDARC
 
@@ -23,18 +24,26 @@ cat << EOF | docker run -i \
                         $IMAGE_NAME \
                         bash || exit $?
 
-if [ "${BINSTAR_TOKEN}" ];then
-    echo
-    export BINSTAR_TOKEN=${BINSTAR_TOKEN}
-fi
-
 export CONDA_NPY='19'
 export PYTHONUNBUFFERED=1
 echo "$config" > ~/.condarc
 
-# Update both obvious-ci and conda-build to get latest "numpy x.x" specification support.
-conda install --yes obvious-ci --channel conda-forge
-conda update conda conda-build --yes --force
+if [ -z ${BINSTAR_TOKEN+x} ]; then
+    echo
+    export BINSTAR_TOKEN=${BINSTAR_TOKEN}
+    export UPLOAD_CHANNELS=""
+else
+    # We only want to run the upload if the binstar token is present.
+    export UPLOAD_CHANNELS="--upload-channels $UPLOAD_OWNER/label/${LABEL_NAME}"
+fi
+
+conda config --add channels scitools
+conda config --set show_channel_urls True
+
+# Update both conda-build-all and conda-build to get latest "numpy x.x" specification support.
+conda install --yes --quiet -c conda-forge conda-build-all
+conda update --yes --force conda conda-build
+conda install -n root --yes --quiet jinja2 anaconda-client
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
@@ -45,6 +54,6 @@ conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
 
-obvci_conda_build_dir /conda-recipes $UPLOAD_OWNER --build-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
+conda-build-all /conda-recipes --inspect-channels $UPLOAD_OWNER/label/${LABEL_NAME} ${UPLOAD_CHANNELS} --matrix-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
 
 EOF
