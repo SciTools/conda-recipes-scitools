@@ -43,23 +43,30 @@ install:
     - cmd: rmdir C:\cygwin /s /q
     # Set the CONDA_NPY, although it has no impact on the actual build. We need this because of a test within conda-build.
     - cmd: set CONDA_NPY=19
+    # Set the name of the channel label to upload to.
+    - cmd: set LABEL_NAME=main
+    # Only run the upload if the binstar token is present.
+    - cmd: set UPLOAD_CHANNELS=""
+    - cmd: /E:ON /V:ON /C if not defined %BINSTAR_TOKEN% (set UPLOAD_CHANNELS="--upload-channels scitools/label/%LABEL_NAME%")
+    - cmd: echo %UPLOAD_CHANNELS
+
     - appveyor DownloadFile "https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py"
     - cmd: python bootstrap-obvious-ci-and-miniconda.py %CONDA_INSTALL_LOCN% %TARGET_ARCH% 3 --without-obvci
     - cmd: set CONDA_PY=%CONDA_PY%
     - cmd: set PATH=%PATH%;%CONDA_INSTALL_LOCN%;%CONDA_INSTALL_LOCN%\scripts
     - cmd: set PYTHONUNBUFFERED=1
 
+    - cmd: conda config --add channels scitools
     - cmd: conda config --set show_channel_urls yes
 
-    - cmd: conda install --yes --quiet obvious-ci --channel conda-forge
-    - cmd: obvci_install_conda_build_tools.py
-    - cmd: conda install --yes conda-build=1.18.2
+    - cmd: conda install --yes --quiet -c conda-forge conda-build-all
+    - cmd: conda update --yes --quiet conda conda-build
+    - cmd: conda install --yes --quiet jinja2 anaconda-client
 
-    - cmd: conda config --add channels scitools
     - cmd: conda info
 
 # Skip .NET project specific build phase.
 build: off
 
 test_script:
-    - '%CMD_IN_ENV% obvci_conda_build_dir .\ scitools --channel main  --build-condition "numpy >=1.8,<=1.10" "%PY_CONDITION%"'
+    - '%CMD_IN_ENV% conda-build-all .\ --inspect-channels scitools/label/%LABEL_NAME% %UPLOAD_CHANNELS% --matrix-condition "numpy >=1.8,<=1.10" "%PY_CONDITION%"'
