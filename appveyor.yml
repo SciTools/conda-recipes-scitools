@@ -40,15 +40,17 @@ platform:
     - x64
 
 install:
+    - setlocal enableextensions enabledelayedexpansion
     - cmd: rmdir C:\cygwin /s /q
     # Set the CONDA_NPY, although it has no impact on the actual build. We need this because of a test within conda-build.
     - cmd: set CONDA_NPY=19
     # Set the name of the channel label to upload to.
-    - cmd: set LABEL_NAME=main
+    - cmd: set "LABEL_NAME=main"
     # Only run the upload if the binstar token is present.
-    - cmd: set UPLOAD_CHANNELS=""
-    - cmd: /E:ON /V:ON /C if not defined %BINSTAR_TOKEN% (set UPLOAD_CHANNELS="--upload-channels scitools/label/%LABEL_NAME%")
-    - cmd: echo %UPLOAD_CHANNELS
+    # Note: an "empty" variable in batch cannot be `set Z=""` (will be interpreted literally) or `set Z=` (unsets %Z%).
+    - cmd: set "UPLOAD_CHANNELS= "
+    - cmd: if defined BINSTAR_TOKEN set "UPLOAD_CHANNELS=--upload-channels scitools/label/%LABEL_NAME%"
+    - cmd: echo %UPLOAD_CHANNELS%
 
     - appveyor DownloadFile "https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py"
     - cmd: python bootstrap-obvious-ci-and-miniconda.py %CONDA_INSTALL_LOCN% %TARGET_ARCH% 3 --without-obvci
@@ -59,6 +61,7 @@ install:
     - cmd: conda config --add channels scitools
     - cmd: conda config --set show_channel_urls yes
 
+    - cmd: conda install --yes --quiet -c conda-forge obvious-ci
     - cmd: conda install --yes --quiet -c conda-forge conda-build-all
     - cmd: conda update --yes --quiet conda conda-build
     - cmd: conda install --yes --quiet jinja2 anaconda-client
