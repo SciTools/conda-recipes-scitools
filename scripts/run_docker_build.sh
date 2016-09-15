@@ -29,13 +29,13 @@ export PYTHONUNBUFFERED=1
 echo "$config" > ~/.condarc
 
 if [ -z ${BINSTAR_TOKEN+x} ]; then
-    echo
-    export BINSTAR_TOKEN=${BINSTAR_TOKEN}
     export UPLOAD_CHANNELS=""
 else
     # We only want to run the upload if the binstar token is present.
+    export BINSTAR_TOKEN=${BINSTAR_TOKEN}
     export UPLOAD_CHANNELS="--upload-channels $UPLOAD_OWNER/label/${LABEL_NAME}"
 fi
+echo "upload_channels = ${UPLOAD_CHANNELS}"
 
 conda config --add channels scitools
 conda config --set show_channel_urls True
