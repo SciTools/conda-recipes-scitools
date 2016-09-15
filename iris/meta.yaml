@@ -7,7 +7,7 @@ source:
     git_tag: v1.10.0
 
 build:
-    number: 0
+    number: 1
     # See https://github.com/SciTools/cartopy/pull/676
     skip: True  # [py35]
 
