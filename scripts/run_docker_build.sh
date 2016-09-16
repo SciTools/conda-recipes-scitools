@@ -24,18 +24,17 @@ cat << EOF | docker run -i \
                         $IMAGE_NAME \
                         bash || exit $?
 
+if [ "${BINSTAR_TOKEN}" ]; then
+    export BINSTAR_TOKEN=${BINSTAR_TOKEN}
+    export UPLOAD_CHANNELS="--upload-channels $UPLOAD_OWNER/label/${LABEL_NAME}"
+else
+    export UPLOAD_CHANNELS=""
+fi
+echo "upload_channels = ${UPLOAD_CHANNELS}"
+
 export CONDA_NPY='19'
 export PYTHONUNBUFFERED=1
 echo "$config" > ~/.condarc
-export BINSTAR_TOKEN=${BINSTAR_TOKEN}
-
-if [ -z ${BINSTAR_TOKEN+x} ]; then
-    export UPLOAD_CHANNELS=""
-else
-    # We only want to run the upload if the binstar token is present.
-    export UPLOAD_CHANNELS="--upload-channels $UPLOAD_OWNER/label/${LABEL_NAME}"
-fi
-echo "upload_channels = ${UPLOAD_CHANNELS}"
 
 conda config --add channels scitools
 conda config --set show_channel_urls True
