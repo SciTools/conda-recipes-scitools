@@ -7,6 +7,13 @@ UPLOAD_OWNER="scitools"
 IMAGE_NAME="pelson/obvious-ci:latest_x64"
 LABEL_NAME="main"
 
+if [ ! -z ${BINSTAR_TOKEN+x} ]; then
+    export UPLOAD_CHANNELS="--upload-channels $UPLOAD_OWNER/label/${LABEL_NAME}"
+else
+    export UPLOAD_CHANNELS=""
+fi
+echo "upload_channels = ${UPLOAD_CHANNELS}"
+
 config=$(cat <<CONDARC
 
 channels:
@@ -24,13 +31,8 @@ cat << EOF | docker run -i \
                         $IMAGE_NAME \
                         bash || exit $?
 
-if [ "${BINSTAR_TOKEN}" ]; then
-    export BINSTAR_TOKEN=${BINSTAR_TOKEN}
-    export UPLOAD_CHANNELS="--upload-channels $UPLOAD_OWNER/label/${LABEL_NAME}"
-else
-    export UPLOAD_CHANNELS=""
-fi
-echo "upload_channels = ${UPLOAD_CHANNELS}"
+# Export token so that conda-build (a sub-process) has access to it.
+export BINSTAR_TOKEN=${BINSTAR_TOKEN}
 
 export CONDA_NPY='19'
 export PYTHONUNBUFFERED=1
