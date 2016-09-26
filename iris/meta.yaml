@@ -17,7 +17,7 @@ requirements:
         - python >=2.7,<3  # [osx]
         - scipy
         - biggus >=0.14
-        - cartopy >=0.14
+        - cartopy >=0.13
         - netcdf4
         - numpy x.x
         - udunits2
@@ -32,7 +32,7 @@ requirements:
         - python >=2.7,<3  # [osx]
         - scipy
         - biggus >=0.14
-        - cartopy >=0.14
+        - cartopy >=0.13
         - matplotlib
         - netcdf4
         - ecmwf_grib >=1.12.1  # [not win and not py3k]
