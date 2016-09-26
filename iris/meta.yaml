@@ -7,7 +7,7 @@ source:
     git_tag: v1.10.0
 
 build:
-    number: 1
+    number: 2
     # See https://github.com/SciTools/cartopy/pull/676
     skip: True  # [py35]
 
@@ -26,7 +26,7 @@ requirements:
         - setuptools
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris-grib  # [not win]
+        - iris_grib  # [not win]
     run:
         - python  # [not osx]
         - python >=2.7,<3  # [osx]
@@ -43,7 +43,7 @@ requirements:
         - cf_units
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris-grib  # [not win]
+        - iris_grib  # [not win]
 
 test:
     imports:
