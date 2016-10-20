@@ -8,7 +8,7 @@ source:
 
 build:
     skip: True  # [win or py3k]
-    number: 3
+    number: 4
     script:
         - python setup.py install --single-version-externally-managed --record record.txt
 
@@ -24,10 +24,8 @@ requirements:
 test:
     requires:
         - iris
-        - iris_sample_data
-        - pep8
-    commands:
-        - python -m unittest discover -v iris_grib.tests
+    imports:
+        - iris_grib
 
 about:
     home: http://scitools.org.uk/iris-grib
