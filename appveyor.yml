@@ -52,7 +52,7 @@ install:
     - cmd: if defined BINSTAR_TOKEN set "UPLOAD_CHANNELS=--upload-channels scitools/label/%LABEL_NAME%"
     - cmd: echo %UPLOAD_CHANNELS%
 
-    - appveyor DownloadFile "https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py"
+    - appveyor DownloadFile "https://raw.githubusercontent.com/conda-forge/conda-smithy/master/bootstrap-obvious-ci-and-miniconda.py"
     - cmd: python bootstrap-obvious-ci-and-miniconda.py %CONDA_INSTALL_LOCN% %TARGET_ARCH% 3 --without-obvci
     - cmd: set CONDA_PY=%CONDA_PY%
     - cmd: set PATH=%PATH%;%CONDA_INSTALL_LOCN%;%CONDA_INSTALL_LOCN%\scripts

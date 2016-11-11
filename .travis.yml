@@ -34,7 +34,7 @@ install:
     - export LABEL_NAME=main
     # Only run the upload if the binstar token is present.
     - export UPLOAD_CHANNELS=$(if [ -z ${BINSTAR_TOKEN+x} ]; then echo ""; else echo "--upload-channels scitools/label/${LABEL_NAME}"; fi)
-    - wget https://raw.githubusercontent.com/pelson/Obvious-CI/master/bootstrap-obvious-ci-and-miniconda.py
+    - curl -L -O https://raw.githubusercontent.com/conda-forge/conda-smithy/master/bootstrap-obvious-ci-and-miniconda.py
     - python bootstrap-obvious-ci-and-miniconda.py ~/miniconda x64 3 --without-obvci && source ~/miniconda/bin/activate root
     - conda config --add channels scitools
     - conda config --set show_channel_urls True
