@@ -1,11 +1,11 @@
 package:
   name: imagehash
-  version: "3.0"
+  version: "3.1"
 
 source:
-  fn: ImageHash-3.0.tar.gz
-  url: https://pypi.python.org/packages/c8/d0/47d1ce7350ece1ff759c5d399392172435391da1ab1008a77c533f59e7e0/ImageHash-3.0.tar.gz
-  md5: e509d748cb6f0b27a056ef903de01b0e
+  fn: ImageHash-3.1.tar.gz
+  url: https://pypi.python.org/packages/0c/1c/b6f539cc08cf8cfb12cb59a6883ee7f1cc0937cf3709247c2a15c8a1e665/ImageHash-3.1.tar.gz
+  md5: 0bf909b6d138768f80dd689be7bedaaa
 
 build:
   skip: True  # [win]
