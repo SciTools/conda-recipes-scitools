@@ -1,0 +1,36 @@
+package:
+    name: mule
+    version: 1.2
+
+source:
+    fn: mule.tar.gz
+    url: https://github.com/SciTools/mule/releases/download/vn1.2/mule.tar.gz
+
+build:
+    number: 0
+    skip: True # [py3k or win]
+    script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+    build:
+        - python
+        - numpy x.x
+        - setuptools
+        - mo_pack
+    run:
+        - python
+        - numpy x.x
+        - mo_pack
+
+test:
+    imports:
+        - mule
+
+about:
+    home: https://github.com/SciTools/mule
+    license: BSD-3
+    summary: Mule API for working with UM FieldsFiles and variants thereof
+
+extra:
+    recipe-maintainers:
+        - stevewardle
