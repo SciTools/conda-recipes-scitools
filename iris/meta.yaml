@@ -1,14 +1,15 @@
+{% set version = "1.11.0" %}
+
 package:
     name: iris
-    version: 1.10.0
+    version: {{ version }} 
 
 source:
     git_url: https://github.com/SciTools/iris.git
-    git_tag: v1.10.0
+    git_tag: v{{ version }}
 
 build:
-    number: 2
-    # See https://github.com/SciTools/cartopy/pull/676
+    number: 0
     skip: True  # [py35]
 
 requirements:
@@ -17,7 +18,7 @@ requirements:
         - python >=2.7,<3  # [osx]
         - scipy
         - biggus >=0.14
-        - cartopy >=0.13
+        - cartopy >=0.14
         - netcdf4
         - numpy x.x
         - udunits2
@@ -32,10 +33,10 @@ requirements:
         - python >=2.7,<3  # [osx]
         - scipy
         - biggus >=0.14
-        - cartopy >=0.13
+        - cartopy >=0.14
         - matplotlib
         - netcdf4
-        - ecmwf_grib >=1.12.1  # [not win and not py3k]
+        - ecmwf_grib >=1.12.1  # [not win]
         # There is a numpy C ABI dependency for as long as we have a C extension (pp_packing).
         - numpy x.x
         - pyke
@@ -43,12 +44,14 @@ requirements:
         - cf_units
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris_grib  # [not win]
+        - iris_grib  # [not win and not py3k]
 
 test:
     imports:
         - iris
         - iris.fileformats.pp_packing  # [not win]
+    commands:
+        - python -c "import iris; print('version = {}'.format(iris.__version__))"
 
 about:
     home: http://www.scitools.org.uk/iris
