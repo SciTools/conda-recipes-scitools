@@ -38,8 +38,8 @@ install:
     - python bootstrap-obvious-ci-and-miniconda.py ~/miniconda x64 3 --without-obvci && source ~/miniconda/bin/activate root
     - conda config --add channels scitools
     - conda config --set show_channel_urls True
-    - conda install --yes --quiet -c conda-forge conda-build-all
-    - conda update -n root --yes --quiet conda conda-build
+    - conda install --yes --quiet -c conda-forge conda-build-all conda-build==2.0.10
+    - conda update -n root --yes --quiet conda
     - conda install -n root --yes --quiet jinja2 anaconda-client
 
 script:

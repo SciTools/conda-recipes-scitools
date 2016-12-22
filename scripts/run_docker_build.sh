@@ -42,8 +42,8 @@ conda config --add channels scitools
 conda config --set show_channel_urls True
 
 # Update both conda-build-all and conda-build to get latest "numpy x.x" specification support.
-conda install --yes --quiet -c conda-forge conda-build-all
-conda update --yes --force conda conda-build
+conda install --yes --quiet -c conda-forge conda-build-all conda-build==2.0.10
+conda update --yes --force conda
 conda install -n root --yes --quiet jinja2 anaconda-client
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
