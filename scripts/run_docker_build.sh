@@ -50,7 +50,7 @@ conda install -n root --yes --quiet jinja2 anaconda-client
 conda clean --lock
 
 conda install --yes anaconda-client
-conda install --yes conda-build
+conda install --yes conda-build==2.0.10
 conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
