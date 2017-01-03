@@ -27,7 +27,6 @@ requirements:
         - setuptools
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris_grib  # [not win]
     run:
         - python  # [not osx]
         - python >=2.7,<3  # [osx]
@@ -36,7 +35,6 @@ requirements:
         - cartopy >=0.14
         - matplotlib
         - netcdf4
-        - ecmwf_grib >=1.12.1  # [not win]
         # There is a numpy C ABI dependency for as long as we have a C extension (pp_packing).
         - numpy x.x
         - pyke
@@ -44,7 +42,6 @@ requirements:
         - cf_units
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris_grib  # [not win and not py3k]
 
 test:
     imports:
