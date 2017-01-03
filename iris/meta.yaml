@@ -46,7 +46,6 @@ requirements:
 test:
     imports:
         - iris
-        - iris.fileformats.pp_packing  # [not win]
     commands:
         - python -c "import iris; print('version = {}'.format(iris.__version__))"
 
