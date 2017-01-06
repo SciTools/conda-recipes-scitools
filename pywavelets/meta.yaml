@@ -10,7 +10,6 @@ source:
     md5: 5b41cd6bf4bd7645aee8eaae72816853
 
 build:
-    skip: True  # [win]
     number: 0
     script: python setup.py install
 

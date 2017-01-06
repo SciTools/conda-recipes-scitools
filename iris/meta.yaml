@@ -42,6 +42,9 @@ requirements:
         - cf_units
         - mo_pack  # [not win]
         - nc_time_axis
+        - pep8
+        - filelock
+        - imagehash
 
 test:
     imports:

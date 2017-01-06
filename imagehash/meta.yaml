@@ -8,7 +8,6 @@ source:
   md5: 0bf909b6d138768f80dd689be7bedaaa
 
 build:
-  skip: True  # [win]
   number: 0
 
 requirements:
@@ -17,11 +16,13 @@ requirements:
     - scipy
     - pillow
     - pywavelets
+    - olefile  # [win]
   run:
     - python
     - scipy
     - pillow
     - pywavelets
+    - olefile  # [win]
 
 test:
   imports:
