@@ -63,8 +63,7 @@ install:
 
     - cmd: conda install --yes --quiet -c conda-forge obvious-ci
     - cmd: conda install --yes --quiet -c conda-forge conda-build-all conda-build==2.0.10
-    - cmd: conda update --yes --quiet conda
-    - cmd: conda install --yes --quiet jinja2 anaconda-client
+    - cmd: conda install --yes --quiet conda==4.2.13 jinja2 anaconda-client
 
     - cmd: conda info
 

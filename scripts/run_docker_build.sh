@@ -43,7 +43,7 @@ conda config --set show_channel_urls True
 
 # Update both conda-build-all and conda-build to get latest "numpy x.x" specification support.
 conda install --yes --quiet -c conda-forge conda-build-all conda-build==2.0.10
-conda update --yes --force conda
+conda update --yes --force conda==4.2.13
 conda install -n root --yes --quiet jinja2 anaconda-client
 
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
@@ -51,6 +51,7 @@ conda clean --lock
 
 conda install --yes anaconda-client
 conda install --yes conda-build==2.0.10
+conda install --yes conda==4.2.13
 conda info
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
