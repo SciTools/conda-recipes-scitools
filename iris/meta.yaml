@@ -20,7 +20,7 @@ requirements:
         - biggus >=0.14
         - cartopy >=0.14
         - netcdf4
-        - numpy x.x
+        - numpy
         - udunits2
         - cf_units
         - pyke
@@ -35,8 +35,7 @@ requirements:
         - cartopy >=0.14
         - matplotlib
         - netcdf4
-        # There is a numpy C ABI dependency for as long as we have a C extension (pp_packing).
-        - numpy x.x
+        - numpy
         - pyke
         - udunits2
         - cf_units
