@@ -53,6 +53,7 @@ conda install --yes anaconda-client
 conda install --yes conda-build==2.0.10
 conda install --yes conda==4.2.13
 conda info
+conda list
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
 

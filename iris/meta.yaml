@@ -20,14 +20,13 @@ requirements:
         - biggus >=0.14
         - cartopy >=0.14
         - netcdf4
-        - numpy x.x
+        - numpy
         - udunits2
         - cf_units
         - pyke
         - setuptools
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris_grib  # [not win]
     run:
         - python  # [not osx]
         - python >=2.7,<3  # [osx]
@@ -36,20 +35,19 @@ requirements:
         - cartopy >=0.14
         - matplotlib
         - netcdf4
-        - ecmwf_grib >=1.12.1  # [not win]
-        # There is a numpy C ABI dependency for as long as we have a C extension (pp_packing).
-        - numpy x.x
+        - numpy
         - pyke
         - udunits2
         - cf_units
         - mo_pack  # [not win]
         - nc_time_axis
-        - iris_grib  # [not win and not py3k]
+        - pep8
+        - filelock
+        - imagehash
 
 test:
     imports:
         - iris
-        - iris.fileformats.pp_packing  # [not win]
     commands:
         - python -c "import iris; print('version = {}'.format(iris.__version__))"
 
