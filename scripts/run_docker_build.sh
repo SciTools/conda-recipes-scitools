@@ -57,6 +57,6 @@ conda list
 unset LANG
 yum install -y expat-devel git autoconf libtool texinfo check-devel gcc-gfortran
 
-conda-build-all /conda-recipes --inspect-channels $UPLOAD_OWNER/label/${LABEL_NAME} ${UPLOAD_CHANNELS} --matrix-condition "numpy >=1.8,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
+conda-build-all /conda-recipes --inspect-channels $UPLOAD_OWNER/label/${LABEL_NAME} ${UPLOAD_CHANNELS} --matrix-condition "numpy >=1.9,<=1.11" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
 
 EOF
