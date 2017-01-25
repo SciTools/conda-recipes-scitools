@@ -72,4 +72,4 @@ install:
 build: off
 
 test_script:
-    - '%CMD_IN_ENV% conda-build-all .\ --inspect-channels scitools/label/%LABEL_NAME% %UPLOAD_CHANNELS% --matrix-condition "numpy >=1.9,<=1.11" "%PY_CONDITION%"'
+    - '%CMD_IN_ENV% conda-build-all .\ --inspect-channels scitools/label/%LABEL_NAME% %UPLOAD_CHANNELS% --matrix-condition "numpy >=1.8,<=1.10" "%PY_CONDITION%"'

@@ -43,4 +43,4 @@ install:
     - conda list
 
 script:
-    - conda-build-all ./ --inspect-channels scitools/label/${LABEL_NAME} ${UPLOAD_CHANNELS} --matrix-condition "numpy >=1.9,<=1.11" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
+    - conda-build-all ./ --inspect-channels scitools/label/${LABEL_NAME} ${UPLOAD_CHANNELS} --matrix-condition "numpy >=1.8,,<=1.10" "python >=2.7,<3|>=3.4,<3.5|>=3.5,<3.6"
