@@ -1,10 +1,10 @@
 package:
     name: mule
-    version: 1.2
+    version: 1.4
 
 source:
     fn: mule.tar.gz
-    url: https://github.com/SciTools/mule/releases/download/vn1.2/mule.tar.gz
+    url: https://github.com/SciTools/mule/releases/download/vn1.4/mule.tar.gz
 
 build:
     number: 0

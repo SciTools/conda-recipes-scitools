@@ -1,10 +1,10 @@
 package:
     name: um_utils
-    version: 1.2
+    version: 1.4
 
 source:
     fn: um_utils.tar.gz
-    url: https://github.com/SciTools/um_utils/releases/download/vn1.2/um_utils.tar.gz
+    url: https://github.com/SciTools/um_utils/releases/download/vn1.4/um_utils.tar.gz
 
 build:
     number: 0
