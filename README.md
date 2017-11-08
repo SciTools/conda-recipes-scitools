@@ -1,3 +1,16 @@
+
+
+
+# This repository is deprecated
+
+Please note that due to the uptake of ideas from this repository into the far more general conda-forge organisation, conda-recipes-scitools is no longer maintained. We strongly encourage use of the conda-forge channel over the scitools one.
+
+
+
+-----------------------------
+
+
+
 # Conda Recipes SciTools
 
 [![Build Status](https://secure.travis-ci.org/SciTools/conda-recipes-scitools.png)](http://travis-ci.org/SciTools/conda-recipes-scitools)
